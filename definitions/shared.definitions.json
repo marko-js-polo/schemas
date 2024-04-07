@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Tag",
+  "description": "Definition for a Tag meant to be referenced from other schemas.",
+  // prevents this from being referenced directly
+  "type": "null",
+  "$defs": {
+    "common-properties": {
+      "properties": {
+        "attributes": {
+          "$ref": "maps.definitions.json#/attribute-map"
+        },
+        "autocomplete": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "descriptionMoreURL": {
+                "type": "string"
+              },
+              "displayText": {
+                "type": "string"
+              },
+              "snippet": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "Provides autocomplete suggestions for the tag, enhancing developer experience by offering context-aware code completion within editors."
+        },
+        "deprecated": {
+          "type": "boolean",
+          "description": "Flags the tag as deprecated, indicating it should be avoided in new development."
+        },
+        "description": {
+          "type": "string",
+          "description": "Provides a brief description of the tag's purpose, used in documentation and tooltips."
+        },
+        "html": {
+          "type": "boolean",
+          "description": "Indicates whether the tag is considered to be standard HTML."
+        },
+        "name": {
+          "type": "string",
+          "description": "The tag name, serving as a unique identifier within the Marko ecosystem."
+        },
+        "type": {
+          "type": "string",
+          "description": "Specifies the Typescript type of the tag, aiding in documentation and tooling."
+        }
+      }
+    },
+    "camelCased-properties": {
+      "properties": {
+        "featureFlags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "A list of feature flags that enable experimental or optional features for this tag."
+        },
+        "htmlType": {
+          "type": "string",
+          "enum": [
+            "html",
+            "math",
+            "svg"
+          ],
+          "description": "Specifies the type of HTML tag, e.g., 'svg' or 'html', to enable specific parsing and rendering optimizations."
+        },
+        "isRepeated": {
+          "type": "boolean",
+          "description": "Indicates whether multiple instances of this tag are allowed within its parent."
+        },
+        "nestedTags": {
+          "description": "Describes nested tags within this tag. Each nested tag can have its own attributes and configuration.",
+          "$ref": "./maps.definitions.json#/tag-map"
+        },
+        "openTagOnly": {
+          "type": "boolean",
+          "description": "Prohibits the tag from having any children"
+        },
+        "parseOptions": {
+          "$ref": "parsing-options.definitions.json#/camelCased"
+        },
+        "removeDashes": {
+          "type": "boolean",
+          "default": false,
+          "description": "By default, native tag attributes are dash-cased; this disables that feature."
+        },
+        "targetProperty": {
+          "type": "string",
+          "description": "Sets the name of the input property that will receive the tag(s).\nUseful for pluralizing the property name of a repeated tag.\n Example: putting `<section>` tags into `input.sections`."
+        }
+      }
+    },
+    "dash-cased-properties": {
+      "properties": {
+        "feature-flags": {
+          "$ref": "#/$defs/camelCased-properties/properties/featureFlags"
+        },
+        "html-type": {
+          "$ref": "#/$defs/camelCased-properties/properties/htmlType"
+        },
+        "is-repeated": {
+          "$ref": "#/$defs/camelCased-properties/properties/isRepeated"
+        },
+        "nested-tags": {
+          "$ref": "#/$defs/camelCased-properties/properties/nestedTags"
+        },
+        "open-tag-only": {
+          "$ref": "#/$defs/camelCased-properties/properties/openTagOnly"
+        },
+        "remove-dashes": {
+          "$ref": "#/$defs/camelCased-properties/properties/removeDashes"
+        },
+        "parse-options": {
+          "$ref": "parsing-options.definitions.json#/any-case"
+        },
+        "target-property": {
+          "$ref": "#/$defs/camelCased-properties/properties/targetProperty"
+        }
+      }
+    }
+  },
+  "shorthands": {
+    "patternProperties": {
+      "^<.+>$": {
+        "$ref": "./tag.definitions.json#/nested-tag"
+      },
+      "^<.+>\\[\\]$": {
+        "$ref": "./tag.definitions.json#/nested-tag"
+      },
+      "^@.+ <.+>$": {
+        "$ref": "./tag.definitions.json#/nested-tag"
+      },
+      "^@.+ <.+>\\[\\]$": {
+        "$ref": "./tag.definitions.json#/nested-tag"
+      },
+      "^@.+$": {
+        "$ref": "./attribute.definitions.json#/any-case"
+      }
+    }
+  },
+  "camelCased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/camelCased-properties"
+      }
+    ]
+  },
+  "dash-cased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/dash-cased-properties"
+      }
+    ]
+  }
+}

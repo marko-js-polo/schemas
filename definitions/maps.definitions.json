@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Map Utils",
+  "description": "Definitions for maps, e.g. attributes which is a Map<string, Attribute>).",
+  "type": "null",
+  "attribute-map": {
+    "type": "object",
+    "description": "Defines the attributes that the tag supports.",
+    "patternProperties": {
+      "[^\\s]+": {
+        "$ref": "./attribute.definitions.json#/any-case"
+      }
+    }
+  },
+  "tag-map": {
+    "camelCased": {
+      "type": "object",
+      "description": "Defines the attributes that the tag supports.",
+      "patternProperties": {
+        "[^\\s]+": {
+          "$ref": "./tag.definitions.json#/nested-tag/camelCased"
+        }
+      }
+    },
+    "dash-cased": {
+      "type": "object",
+      "description": "Defines the attributes that the tag supports.",
+      "patternProperties": {
+        "[^\\s]+": {
+          "$ref": "./tag.definitions.json#/nested-tag/dash-cased"
+        }
+      }
+    }
+  }
+}

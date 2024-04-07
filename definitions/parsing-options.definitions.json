@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "parsing-options",
+  "description": "Definition for parsing related properties meant to be referenced from other schemas.",
+  "type": "null",
+  "$defs": {
+    "common-properties": {
+      "properties": {
+        "import": {
+          "type": "string",
+          "description": "Specifies a module to import when the tag is parsed, which can initialize state or register global behaviors."
+        },
+        "text": {
+          "type": "boolean",
+          "description": "When true, text nodes within the tag are preserved exactly as written, including whitespace characters."
+        },
+        "statement": {
+          "type": "boolean",
+          "description": "Marks the tag as containing a statement, which may influence how its content is evaluated or executed."
+        }
+      }
+    },
+    "camelCased-properties": {
+      "properties": {
+        "openTagOnly": {
+          "type": "boolean",
+          "description": "Determines if the tag should only have an opening tag without a matching closing tag."
+        },
+        "preserveWhitespace": {
+          "type": "boolean",
+          "description": "Determines whether whitespace is preserved in the tag's output. Useful for tags where spacing is significant."
+        },
+        "rawOpenTag": {
+          "type": "boolean",
+          "description": "Allows the tag to be self-closing or to omit its closing tag in the markup."
+        }
+      }
+    },
+    "dashed-properties": {
+      "properties": {
+        "open-tag-only": {
+          "$ref": "#/$defs/camelCased-properties/properties/openTagOnly"
+        },
+        "preserve-whitespace": {
+          "$ref": "#/$defs/camelCased-properties/properties/preserveWhitespace"
+        },
+        "raw-open-tag": {
+          "$ref": "#/$defs/camelCased-properties/properties/rawOpenTag"
+        }
+      }
+    }
+  },
+  "camelCased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/camelCased-properties"
+      }
+    ]
+  },
+  "dash-cased": {
+    "unevaluatedProperties": false,
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/dashed-properties"
+      }
+    ]
+  },
+  "any-case": {
+    "type": "object",
+    "anyOf": [
+      {
+        "unevaluatedProperties": false,
+        "$ref": "#/camelCased"
+      },
+      {
+        "unevaluatedProperties": false,
+        "$ref": "#/dash-cased"
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Tag",
+  "description": "Definition for a Tag meant to be referenced from other schemas.",
+  // prevents this from being referenced directly
+  "type": "null",
+  "$defs": {
+    "base": {
+      "camelCased": {
+        "allOf": [
+          {
+            "$ref": "./compiler-hooks.definitions.json#/camelCased"
+          },
+          {
+            "$ref": "./file-mappings.definitions.json"
+          },
+          {
+            "$ref": "./shared.definitions.json#/shorthands"
+          },
+          {
+            "$ref": "./shared.definitions.json#/camelCased"
+          }
+        ]
+      },
+      "dash-cased": {
+        "allOf": [
+          {
+            "$ref": "./compiler-hooks.definitions.json#/dash-cased"
+          },
+          {
+            "$ref": "./file-mappings.definitions.json"
+          },
+          {
+            "$ref": "./shared.definitions.json#/shorthands"
+          },
+          {
+            "$ref": "./shared.definitions.json#/dash-cased"
+          }
+        ]
+      }
+    },
+    "top-level-props": {
+      "attributeGroups": {
+        "type": "object",
+        "description": "Defines groups of attributes that can then be referenced from tag definitions.",
+        "patternProperties": {
+          ".*": {
+            "$ref": "./maps.definitions.json#/attribute-map"
+          }
+        }
+      }
+    },
+    "nested-tag-props": {
+      "attributeGroups": {
+        "type": "array",
+        "description": "Names of attribute groups that should be added to this tag.",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "camelCased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/base/camelCased"
+      },
+      {
+        "properties": {
+          "attributeGroups": {
+            "$ref": "#/$defs/top-level-props/attributeGroups"
+          }
+        }
+      }
+    ]
+  },
+  "dash-cased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/base/dash-cased"
+      },
+      {
+        "properties": {
+          "attribute-groups": {
+            "$ref": "#/$defs/top-level-props/attributeGroups"
+          }
+        }
+      }
+    ]
+  },
+  "nested-tag": {
+    "anyOf": [
+      {
+        "unevaluatedProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/$defs/base/camelCased"
+          },
+          {
+            "properties": {
+              "attributeGroups": {
+                "$ref": "#/$defs/nested-tag-props/attributeGroups"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "unevaluatedProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/$defs/base/dash-cased"
+          },
+          {
+            "properties": {
+              "attribute-groups": {
+                "$ref": "#/$defs/nested-tag-props/attributeGroups"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

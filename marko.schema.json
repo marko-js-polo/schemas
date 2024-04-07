@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "marko.json Schema",
+  "description": "The `marko.json` can be used to identify and document an entire library of tags. Compiler hooks, file mappings, and attributes defined here will be applied to all tags.",
+  "type": "object",
+  "definitions": {
+    "common-properties": {
+      "properties": {
+        "exports": {
+          "type": "string",
+          "description": "Where the compiled components are exported."
+        }
+      }
+    },
+    "camelCased-properties": {
+      "properties": {
+        "tagsDir": {
+          "type": "string",
+          "description": "What directory to crawl to autodiscover components. Default: './components/'"
+        },
+        "taglibId": {
+          "type": "string",
+          "description": "Names the component library, for better errors."
+        },
+        "taglibImports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Creates a combined tag library by referencing others."
+        }
+      }
+    },
+    "dashed-properties": {
+      "properties": {
+        "tags-dir": {
+          "$ref": "#/definitions/camelCased-properties/properties/tagsDir"
+        },
+        "taglib-id": {
+          "$ref": "#/definitions/camelCased-properties/properties/taglibId"
+        },
+        "taglib-imports": {
+          "$ref": "#/definitions/camelCased-properties/properties/taglibImports"
+        }
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "unevaluatedProperties": false,
+      "allOf": [
+        {
+          "//": "marko.json is a superset of marko-tag.json",
+          "$ref": "definitions/tag.definitions.json#/camelCased"
+        },
+        {
+          "$ref": "#/definitions/common-properties"
+        },
+        {
+          "$ref": "#/definitions/camelCased-properties"
+        }
+      ]
+    },
+    {
+      "unevaluatedProperties": false,
+      "allOf": [
+        {
+          "//": "marko.json is a superset of marko-tag.json",
+          "$ref": "definitions/tag.definitions.json#/dash-cased"
+        },
+        {
+          "$ref": "#/definitions/common-properties"
+        },
+        {
+          "$ref": "#/definitions/dashed-properties"
+        }
+      ]
+    }
+  ]
+}

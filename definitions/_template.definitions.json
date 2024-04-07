@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "_____",
+  "description": "Definition for ____________ meant to be referenced from other schemas.",
+  "type": "object",
+  "$defs": {
+    "common-properties": {
+      "properties": {}
+    },
+    "camelCased-properties": {
+      "properties": {}
+    },
+    "dashed-properties": {
+      "properties": {}
+    }
+  },
+  "camelCased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/camelCased-properties"
+      }
+    ]
+  },
+  "dash-cased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/dashed-properties"
+      }
+    ]
+  },
+  "any-case": {
+    "type": "object",
+    "anyOf": [
+      {
+        "unevaluatedProperties": false,
+        "$ref": "#/camelCased"
+      },
+      {
+        "unevaluatedProperties": false,
+        "$ref": "#/dash-cased"
+      }
+    ]
+  }
+}

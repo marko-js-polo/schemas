@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Marko Tag JSON Definition",
+  "description": "Schema for defining Marko tags and compiler hooks.",
+  "type": "object",
+  "anyOf": [
+    {
+      "unevaluatedProperties": false,
+      "$ref": "./definitions/tag.definitions.json#/camelCased"
+    },
+    {
+      "unevaluatedProperties": false,
+      "$ref": "./definitions/tag.definitions.json#/dash-cased"
+    }
+  ]
+}

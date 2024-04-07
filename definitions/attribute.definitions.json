@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Attribute",
+  "description": "Definition for tag attribute meant to be referenced from other schemas.",
+  "$defs": {
+    "autocompleteItem": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "descriptionMoreURL": {
+          "type": "string"
+        },
+        "displayText": {
+          "type": "string"
+        },
+        "snippet": {
+          "type": "string"
+        }
+      }
+    },
+    "common-properties": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "properties": {
+        "autocomplete": {
+          "oneOf": [
+            {
+              "type": "object",
+              "$ref": "#/$defs/autocompleteItem"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/autocompleteItem"
+              }
+            }
+          ]
+        },
+        "deprecated": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "enum": {
+          "type": "array",
+          "uniqueItems": true
+        },
+        "html": {
+          "type": "boolean",
+          "description": "Indicates whether the attribute is considered to be standard HTML."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the attribute.\n Overrides the name set from the '@' shorthand or the key used in 'attributes'."
+        },
+        "pattern": {
+          "type": "boolean"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "array",
+            "boolean",
+            "cssId",
+            "cssStyle",
+            "date",
+            "expression",
+            "flag",
+            "function",
+            "number",
+            "object",
+            "regexp",
+            "style",
+            "string"
+          ]
+        }
+      }
+    },
+    "camelCased-properties": {
+      "properties": {
+        "defaultValue": {
+          "type": [
+            "string",
+            "number",
+            "object",
+            "array",
+            "boolean",
+            "null"
+          ],
+          "description": "Provides a default value for the attribute when not explicitly set."
+        },
+        "preserveName": {
+          "type": "boolean"
+        },
+        "removeDashes": {
+          "type": "boolean"
+        },
+        "targetProperty": {
+          "type": "string",
+          "description": "Sets the name of the input property that will receive the attribute(s) value.\nUseful for pluralizing the property name of a repeated attribute tag.\n Example: putting `<@tab>` tags into `input.tabs`."
+        }
+      }
+    },
+    "dashed-properties": {
+      "properties": {
+        "default-value": {
+          "$ref": "#/$defs/camelCased-properties/properties/defaultValue"
+        },
+        "preserve-name": {
+          "$ref": "#/$defs/camelCased-properties/properties/preserveName"
+        },
+        "remove-dashes": {
+          "$ref": "#/$defs/camelCased-properties/properties/removeDashes"
+        },
+        "target-property": {
+          "$ref": "#/$defs/camelCased-properties/properties/removeDashes"
+        }
+      }
+    }
+  },
+  "camelCased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/camelCased-properties"
+      }
+    ]
+  },
+  "dash-cased": {
+    "allOf": [
+      {
+        "$ref": "#/$defs/common-properties"
+      },
+      {
+        "$ref": "#/$defs/dashed-properties"
+      }
+    ]
+  },
+  "any-case": {
+    "anyOf": [
+      {
+        "unevaluatedProperties": false,
+        "$ref": "#/camelCased"
+      },
+      {
+        "unevaluatedProperties": false,
+        "$ref": "#/dash-cased"
+      }
+    ]
+  }
+}

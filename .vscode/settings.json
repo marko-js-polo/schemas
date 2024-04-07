@@ -1,0 +1,23 @@
+{
+  "cSpell.words": ["markoc", "taglib", "textto"],
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "marko-tag.json",
+        "marko-tag.jsonc",
+        "marko-tag.*.json",
+        "marko-tag.*.jsonc"
+      ],
+      "url": "./marko-tag.schema.json"
+    },
+    {
+      "fileMatch": [
+        "marko.json",
+        "marko.jsonc",
+        "marko.*.json",
+        "marko.*.jsonc"
+      ],
+      "url": "./marko.schema.json"
+    }
+  ]
+}
