@@ -6,6 +6,7 @@
   "type": "object",
   "$defs": {
     "base": {
+      "type": "object",
       "properties": {
         "$schema": {
           "title": "$schema",
@@ -19,79 +20,75 @@
       }
     },
     "camelCased": {
-      "allOf": [
-        {
-          "$ref": "#/$defs/base"
+      "title": "Marko Library :: camelCased",
+      "type": "object",
+      "$ref": "#/$defs/base",
+
+      "properties": {
+        "tagsDir": {
+          "type": "string",
+          "description": "What directory to crawl to autodiscover components. Default: './components/'"
         },
-        {
-          "properties": {
-            "tagsDir": {
-              "type": "string",
-              "description": "What directory to crawl to autodiscover components. Default: './components/'"
-            },
-            "taglibId": {
-              "type": "string",
-              "description": "Names the component library, for better errors."
-            },
-            "taglibImports": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "description": "Creates a combined tag library by referencing others."
-            }
-          }
+        "taglibId": {
+          "type": "string",
+          "description": "Names the component library, for better errors."
+        },
+        "taglibImports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Creates a combined tag library by referencing others."
         }
-      ]
+      }
     },
     "dash-cased": {
-      "allOf": [
-        {
-          "$ref": "#/$defs/base"
+      "title": "Marko Library :: dash-cased",
+      "$ref": "#/$defs/base",
+      "type": "object",
+      "properties": {
+        "tags-dir": {
+          "$ref": "#/$defs/camelCased/properties/tagsDir"
         },
-        {
-          "properties": {
-            "tags-dir": {
-              "$ref": "#/$defs/camelCased-properties/properties/tagsDir"
-            },
-            "taglib-id": {
-              "$ref": "#/$defs/camelCased-properties/properties/taglibId"
-            },
-            "taglib-imports": {
-              "$ref": "#/$defs/camelCased-properties/properties/taglibImports"
-            }
-          }
+        "taglib-id": {
+          "$ref": "#/$defs/camelCased/properties/taglibId"
+        },
+        "taglib-imports": {
+          "$ref": "#/$defs/camelCased/properties/taglibImports"
         }
-      ]
-    },
-    "anyOf": [
-      {
-        "title": "Property style: camelCased",
-        "type": "object",
-        "unevaluatedProperties": false,
-        "allOf": [
-          {
-            "x-note": "marko.json is a superset of marko-tag.json",
-            "$ref": "./marko-tag.json"
-          },
-          {
-            "$ref": "#/$defs/camelCased"
-          }
-        ]
-      },
-      {
-        "title": "Property style: dash-cased",
-        "type": "object",
-        "unevaluatedProperties": false,
-        "allOf": [
-          {
-            "x-note": "marko.json is a superset of marko-tag.json",
-            "$ref": "./marko-tag.json"
-          },
-          {
-            "$ref": "#/$defs/dash-cased"
-          }
-        ]
       }
-    ]
-  }
+    }
+  },
+
+  "unevaluatedProperties": false,
+  "allOf": [
+    {
+      "title": "JSON properties",
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "title": "$schema",
+          "default": "https://saulo.engineer/contributes/marko-js/schemas/marko-tag.json",
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "x-note": "marko.json is a superset of marko-tag.json",
+      "$ref": "./marko-tag.json"
+    }
+    // ,
+    // {
+    //   "type": "object",
+    //   "oneOf": [
+    //     {
+    //       "$ref": "#/$defs/camelCased"
+    //     },
+    //     {
+    //       "$ref": "#/$defs/dash-cased"
+    //     }
+    //   ]
+    // }
+  ]
+}

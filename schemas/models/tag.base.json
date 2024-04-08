@@ -1,6 +1,6 @@
 {
   "title": "Tag Base",
-  "$id": "https://saulo.engineer/contributes/marko-js/schemas/tag.base",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "description": "Base definitions for a Tag.",
   "type": "object",
@@ -16,9 +16,13 @@
       ]
     },
     "camelCased": {
+      "title": "Tag Base :: camelCased",
       "allOf": [
         {
-          "$ref": "#/$defs/base"
+          "$ref": "../property-groups/file-mappings.json"
+        },
+        {
+          "$ref": "../property-groups/shorthands.json"
         },
         {
           "$ref": "../property-groups/compiler-hooks.json#/camelCased"
@@ -29,6 +33,7 @@
       ]
     },
     "dash-cased": {
+      "title": "Tag Base :: dash-cased",
       "allOf": [
         {
           "$ref": "#/$defs/base"
@@ -42,6 +47,8 @@
       ]
     },
     "topLevel-tag-properties": {
+      "title": "Attribute Groups",
+      "type": "object",
       "properties": {
         "attributeGroups": {
           "type": "object",
@@ -55,6 +62,8 @@
       }
     },
     "nested-tag-properties": {
+      "title": "Attribute Groups",
+      "type": "object",
       "properties": {
         "attributeGroups": {
           "type": "array",

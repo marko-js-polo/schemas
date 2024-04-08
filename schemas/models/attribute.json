@@ -1,6 +1,6 @@
 {
   "title": "Attribute",
-  "$id": "https://saulo.engineer/contributes/marko-js/schemas/attribute",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "x-stoplight": {
     "id": "6df5e90f7563f"
@@ -10,9 +10,14 @@
     "object",
     "string"
   ],
-  "anyOf": [
+  "oneOf": [
     {
-      "$ref": "./attribute.object.json"
+      "title": "Attribute :: camelCased",
+      "$ref": "./attribute.object.json#/$defs/camelCased"
+    },
+    {
+      "title": "Attribute :: dash-cased",
+      "$ref": "./attribute.object.json#/$defs/dash-cased"
     },
     {
       "$ref": "./attribute.string.json"

@@ -1,9 +1,9 @@
 {
-  "title": "Compiler hooks properties",
+  "title": "Compiler hooks",
+  "description": "Properties that allow specifying files to hook into compiler stages.",
   "$id": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/compiler-hooks",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "description": "Properties that allow specifying files to hook into compiler stages.",
-  "type": "null",
+  "type": "object",
   "$defs": {
     "common-properties": {
       "properties": {
@@ -65,6 +65,8 @@
     }
   },
   "camelCased": {
+    "title": "Compiler hooks",
+    "description": "Properties that allow specifying files to hook into compiler stages.",
     "allOf": [
       {
         "$ref": "#/$defs/common-properties"
@@ -75,6 +77,8 @@
     ]
   },
   "dash-cased": {
+    "title": "Compiler hooks",
+    "description": "Properties that allow specifying files to hook into compiler stages.",
     "allOf": [
       {
         "$ref": "#/$defs/common-properties"
@@ -84,5 +88,13 @@
       }
     ]
   },
+  "oneOf": [
+    {
+      "$ref": "#/camelCased"
+    },
+    {
+      "$ref": "#/dash-cased"
+    }
+  ],
   "x-internal": true
 }

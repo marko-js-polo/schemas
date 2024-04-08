@@ -1,6 +1,6 @@
 {
   "title": "Attribute Base",
-  "$id": "https://saulo.engineer/contributes/marko-js/schemas/attribute.base",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute.base",
   "x-internal": true,
   "description": "Base definitions for tag attributes.\n- **`@internal`**\n- `@path` `/schemas/attribute/attribute.base.json`\n\n### Properties",
   "$schema": "https://json-schema.org/draft/2019-09/schema",

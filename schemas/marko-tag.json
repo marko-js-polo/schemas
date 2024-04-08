@@ -4,12 +4,17 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "description": "Schema for `marko-tag.json` files, used for defining a single tag.",
   "type": "object",
-  "anyOf": [
-    {
+  "$defs": {
+    "camelCased": {
+      "title": "Property style :: camel",
       "$ref": "./models/tag.json"
-    },
+    }
+  },
+  
+  "allOf": [
     {
-      "description": "Schema for `marko-tag.json` files, used for defining a single tag.",
+      "title": "JSON properties",
+      "type": "object",
       "properties": {
         "$schema": {
           "title": "$schema",
@@ -17,6 +22,10 @@
           "type": "string"
         }
       }
+    },
+    {
+      "type": "object",
+      "$ref": "#/$defs/camelCased"
     }
   ]
 }

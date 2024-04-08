@@ -1,11 +1,12 @@
 {
   "title": "Tag",
-  "$id": "https://saulo.engineer/contributes/marko-js/schemas/tag",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/tag",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "description": "The only difference between a top-level tag and a nested tag is in the `attributeGroups` property.\n\nWhile a top-level tag (or a Marko library) creates attribute groups, nested tags only use those attributes.",
   "type": "object",
   "$defs": {
     "camelCased": {
+      "title": "Tag :: camelCased",
       "allOf": [
         {
           "$ref": "./tag.base.json#/$defs/camelCased"
@@ -16,10 +17,10 @@
       ]
     },
     "dash-cased": {
-      "title": "Property style: dash-cased",
+      "title": "Tag :: dash-cased",
       "allOf": [
         {
-          "$ref": "./tag.base.json#/$defs/camelCased"
+          "$ref": "./tag.base.json#/$defs/dash-cased"
         },
         {
           "$ref": "./tag.base.json#/$defs/topLevel-tag-properties"
@@ -27,16 +28,12 @@
       ]
     }
   },
-  "anyOf": [
+  "oneOf": [
     {
-      "title": "Property style: camelCased",
-      "type": "object",
       "unevaluatedProperties": false,
       "$ref": "#/$defs/camelCased"
     },
     {
-      "title": "Property style: dash-cased",
-      "type": "object",
       "unevaluatedProperties": false,
       "$ref": "#/$defs/dash-cased"
     }
