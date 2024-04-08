@@ -4,7 +4,11 @@
     "href": "string",
     "variant": {
       "type": "string",
-      "description": "primary | secondary"
+      "description": "Specifies the component variant",
+      "enum": [
+        "primary",
+        "secondary"
+      ]
     },
     "size": {
       "type": "string",

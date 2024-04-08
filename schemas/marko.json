@@ -1,0 +1,97 @@
+{
+  "title": "marko.json Schema",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/marko.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "description": "The `marko.json` can be used to identify and document an entire library of tags. Compiler hooks, file mappings, and attributes defined here will be applied to all tags.",
+  "type": "object",
+  "$defs": {
+    "base": {
+      "properties": {
+        "$schema": {
+          "title": "$schema",
+          "default": "https://saulo.engineer/contributes/marko-js/schemas/marko.json",
+          "type": "string"
+        },
+        "exports": {
+          "type": "string",
+          "description": "Where the compiled components are exported."
+        }
+      }
+    },
+    "camelCased": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "properties": {
+            "tagsDir": {
+              "type": "string",
+              "description": "What directory to crawl to autodiscover components. Default: './components/'"
+            },
+            "taglibId": {
+              "type": "string",
+              "description": "Names the component library, for better errors."
+            },
+            "taglibImports": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Creates a combined tag library by referencing others."
+            }
+          }
+        }
+      ]
+    },
+    "dash-cased": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "properties": {
+            "tags-dir": {
+              "$ref": "#/$defs/camelCased-properties/properties/tagsDir"
+            },
+            "taglib-id": {
+              "$ref": "#/$defs/camelCased-properties/properties/taglibId"
+            },
+            "taglib-imports": {
+              "$ref": "#/$defs/camelCased-properties/properties/taglibImports"
+            }
+          }
+        }
+      ]
+    },
+    "anyOf": [
+      {
+        "title": "Property style: camelCased",
+        "type": "object",
+        "unevaluatedProperties": false,
+        "allOf": [
+          {
+            "x-note": "marko.json is a superset of marko-tag.json",
+            "$ref": "./marko-tag.json"
+          },
+          {
+            "$ref": "#/$defs/camelCased"
+          }
+        ]
+      },
+      {
+        "title": "Property style: dash-cased",
+        "type": "object",
+        "unevaluatedProperties": false,
+        "allOf": [
+          {
+            "x-note": "marko.json is a superset of marko-tag.json",
+            "$ref": "./marko-tag.json"
+          },
+          {
+            "$ref": "#/$defs/dash-cased"
+          }
+        ]
+      }
+    ]
+  }

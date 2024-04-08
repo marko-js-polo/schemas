@@ -1,0 +1,79 @@
+{
+  "title": "Tag Base",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/tag.base",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "description": "Base definitions for a Tag.",
+  "type": "object",
+  "$defs": {
+    "base": {
+      "allOf": [
+        {
+          "$ref": "../property-groups/file-mappings.json"
+        },
+        {
+          "$ref": "../property-groups/shorthands.json"
+        }
+      ]
+    },
+    "camelCased": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "$ref": "../property-groups/compiler-hooks.json#/camelCased"
+        },
+        {
+          "$ref": "../property-groups/shared.json#/camelCased"
+        }
+      ]
+    },
+    "dash-cased": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "$ref": "../property-groups/compiler-hooks.json#/dash-cased"
+        },
+        {
+          "$ref": "../property-groups/shared.json#/dash-cased"
+        }
+      ]
+    },
+    "topLevel-tag-properties": {
+      "properties": {
+        "attributeGroups": {
+          "type": "object",
+          "description": "Defines groups of attributes that can then be referenced from tag definitions.",
+          "patternProperties": {
+            ".*": {
+              "$ref": "../utils/maps.json#/attribute-map"
+            }
+          }
+        }
+      }
+    },
+    "nested-tag-properties": {
+      "properties": {
+        "attributeGroups": {
+          "type": "array",
+          "description": "Names of attribute groups that should be added to this tag.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "unevaluatedProperties": false,
+      "$ref": "#/$defs/camelCased"
+    },
+    {
+      "unevaluatedProperties": false,
+      "$ref": "#/$defs/dash-cased"
+    }
+  ]
+}

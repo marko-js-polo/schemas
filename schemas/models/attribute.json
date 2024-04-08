@@ -1,0 +1,21 @@
+{
+  "title": "Attribute",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/attribute",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "x-stoplight": {
+    "id": "6df5e90f7563f"
+  },
+  "description": "An attribute can be defined by simply setting it's type, but allows customization of various aspects when defined using an object.",
+  "type": [
+    "object",
+    "string"
+  ],
+  "anyOf": [
+    {
+      "$ref": "./attribute.object.json"
+    },
+    {
+      "$ref": "./attribute.string.json"
+    }
+  ]
+}

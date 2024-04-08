@@ -1,14 +1,14 @@
 {
+  "title": "Library and Tag shared properties",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/shared",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/shared.definitions.json",
-  "title": "Tag",
-  "description": "Definition for a Tag meant to be referenced from other schemas.",
-  "type": "null",
+  "description": "Combines all properties shared by tags (`marko-tag.json`) and library (`marko.json`) schemas.",
+  "type": "object",
   "$defs": {
     "common-properties": {
       "properties": {
         "attributes": {
-          "$ref": "maps.definitions.json#/attribute-map"
+          "$ref": "../utils/maps.json#/attribute-map"
         },
         "autocomplete": {
           "type": "array",
@@ -77,14 +77,14 @@
         },
         "nestedTags": {
           "description": "Describes nested tags within this tag. Each nested tag can have its own attributes and configuration.",
-          "$ref": "./maps.definitions.json#/tag-map"
+          "$ref": "../utils/maps.json#/tag-map"
         },
         "openTagOnly": {
           "type": "boolean",
           "description": "Prohibits the tag from having any children"
         },
         "parseOptions": {
-          "$ref": "parsing-options.definitions.json#/camelCased"
+          "$ref": "./parse-options.json#/camelCased"
         },
         "removeDashes": {
           "type": "boolean",
@@ -118,30 +118,11 @@
           "$ref": "#/$defs/camelCased-properties/properties/removeDashes"
         },
         "parse-options": {
-          "$ref": "parsing-options.definitions.json#/any-case"
+          "$ref": "./parse-options.json#/dash-cased"
         },
         "target-property": {
           "$ref": "#/$defs/camelCased-properties/properties/targetProperty"
         }
-      }
-    }
-  },
-  "shorthands": {
-    "patternProperties": {
-      "^<.+>$": {
-        "$ref": "./tag.definitions.json#/nested-tag"
-      },
-      "^<.+>\\[\\]$": {
-        "$ref": "./tag.definitions.json#/nested-tag"
-      },
-      "^@.+ <.+>$": {
-        "$ref": "./tag.definitions.json#/nested-tag"
-      },
-      "^@.+ <.+>\\[\\]$": {
-        "$ref": "./tag.definitions.json#/nested-tag"
-      },
-      "^@.+$": {
-        "$ref": "./attribute.definitions.json#/any-case"
       }
     }
   },
@@ -164,5 +145,6 @@
         "$ref": "#/$defs/dash-cased-properties"
       }
     ]
-  }
+  },
+  "x-internal": true
 }

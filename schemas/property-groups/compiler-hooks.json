@@ -1,8 +1,8 @@
 {
+  "title": "Compiler hooks properties",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/compiler-hooks",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/compiler-hooks.definitions.json",
-  "title": "compiler hooks properties",
-  "description": "Defines the properties used to hook into compilation stages",
+  "description": "Properties that allow specifying files to hook into compiler stages.",
   "type": "null",
   "$defs": {
     "common-properties": {
@@ -83,5 +83,6 @@
         "$ref": "#/$defs/dashed-properties"
       }
     ]
-  }
+  },
+  "x-internal": true
 }

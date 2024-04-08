@@ -1,0 +1,12 @@
+{
+  "title": "Attribute Type",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/attribute.string",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "description": "The type of a tag attribute.",
+  "$ref": "./attribute.base.json#/$defs/attributeType",
+  "examples": [
+    "boolean",
+    "array"
+  ],
+  "x-internal": false
+}

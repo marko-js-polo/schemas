@@ -15,7 +15,14 @@
         "marko-tag.pub*.json",
         "marko-tag.pub*.jsonc"
       ],
-      "url": "https://raw.githubusercontent.com/marko-js-polo/schemas/main/marko-tag.schema.json"
+      "url": "https://saulo.engineer/contributes/marko-js/schemas/marko-tag.json"
+    },
+    {
+      "fileMatch": [
+        "marko.pub*.json",
+        "marko.pub*.jsonc"
+      ],
+      "url": "https://saulo.engineer/contributes/marko-js/schemas/marko.json"
     },
     {
       "fileMatch": [
@@ -24,7 +31,7 @@
         "marko-tag.*.json",
         "marko-tag.*.jsonc"
       ],
-      "url": "./marko-tag.schema.json"
+      "url": "./schemas/marko-tag.json"
     },
     {
       "fileMatch": [
@@ -33,7 +40,7 @@
         "marko.*.json",
         "marko.*.jsonc"
       ],
-      "url": "./marko.schema.json"
+      "url": "./schemas/marko.json"
     }
   ]
 }

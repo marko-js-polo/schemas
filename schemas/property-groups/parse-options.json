@@ -1,9 +1,8 @@
 {
+  "title": "Parse Options",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/parse-options",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/parsing-options.definitions.json",
-  "title": "parsing-options",
-  "description": "Definition for parsing related properties meant to be referenced from other schemas.",
-  "type": "null",
+  "description": "Parse options can be used to configure how Marko's parser should parse a tag.\n\nThese options set in the [parseOptions](./tag.definitions.json) property of a [tag definition](./tag.definitions.json)",
   "$defs": {
     "common-properties": {
       "properties": {
@@ -52,6 +51,7 @@
     }
   },
   "camelCased": {
+    "title": "Property style: camelCased",
     "allOf": [
       {
         "$ref": "#/$defs/common-properties"
@@ -62,6 +62,7 @@
     ]
   },
   "dash-cased": {
+    "title": "Property style: dash-cased",
     "unevaluatedProperties": false,
     "allOf": [
       {
@@ -72,17 +73,15 @@
       }
     ]
   },
-  "any-case": {
-    "type": "object",
-    "anyOf": [
-      {
-        "unevaluatedProperties": false,
-        "$ref": "#/camelCased"
-      },
-      {
-        "unevaluatedProperties": false,
-        "$ref": "#/dash-cased"
-      }
-    ]
-  }
+  "type": "object",
+  "anyOf": [
+    {
+      "unevaluatedProperties": false,
+      "$ref": "#/camelCased"
+    },
+    {
+      "unevaluatedProperties": false,
+      "$ref": "#/dash-cased"
+    }
+  ]
 }
