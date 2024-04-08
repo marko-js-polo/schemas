@@ -13,7 +13,7 @@
       "description": "An Attribute definition object with camelCased properties",
       "allOf": [
         {
-          "$ref": "./attribute.base.json",
+          "$ref": "./attribute.base.json#/$defs/base",
           "x-stoplight": {
             "id": "gmcptyb6ohq09"
           }
@@ -33,7 +33,7 @@
       "title": "object :: dash-cased",
       "allOf": [
         {
-          "$ref": "./attribute.base.json",
+          "$ref": "./attribute.base.json#/$defs/base",
           "x-stoplight": {
             "id": "2j5vz3wnxdi7j"
           }

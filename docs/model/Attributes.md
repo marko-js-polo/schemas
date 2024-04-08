@@ -28,7 +28,7 @@ title: Schema
 -->
 
 ```json json_schema
-$ref: "../../schemas/attribute/attribute.json#/$defs/simple"
+$ref: "../../schemas/models/attribute.string.json"
 ```
 
 <!-- type: tab-end -->
@@ -62,7 +62,7 @@ title: Schema
 -->
 
 ```json json_schema
-$ref: "../../schemas/attribute/attribute.json#/$defs/object"
+$ref: "../../schemas/models/attribute.object.json"
 ```
 
 <!-- type: tab-end -->
