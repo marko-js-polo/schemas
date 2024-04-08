@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "description": "Properties that allow specifying custom paths to component files.",
+  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/file-mappings.definitions.json",
+  "comment": "Properties that allow specifying custom paths to component files.",
   "type": "object",
   "properties": {
     "renderer": {

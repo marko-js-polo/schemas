@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/marko.schema.json",
   "title": "marko.json Schema",
   "description": "The `marko.json` can be used to identify and document an entire library of tags. Compiler hooks, file mappings, and attributes defined here will be applied to all tags.",
   "type": "object",

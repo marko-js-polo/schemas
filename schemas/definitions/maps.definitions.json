@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/maps.definitions.json",
   "title": "Map Utils",
   "description": "Definitions for maps, e.g. attributes which is a Map<string, Attribute>).",
   "type": "null",
@@ -18,7 +19,7 @@
       "description": "Defines the attributes that the tag supports.",
       "patternProperties": {
         "[^\\s]+": {
-          "$ref": "./tag.definitions.json#/nested-tag/camelCased"
+          "$ref": "./tag.definitions.json#/nested-tag"
         }
       }
     },
@@ -27,7 +28,7 @@
       "description": "Defines the attributes that the tag supports.",
       "patternProperties": {
         "[^\\s]+": {
-          "$ref": "./tag.definitions.json#/nested-tag/dash-cased"
+          "$ref": "./tag.definitions.json#/nested-tag"
         }
       }
     }

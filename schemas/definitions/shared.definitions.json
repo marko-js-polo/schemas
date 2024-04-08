@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/shared.definitions.json",
   "title": "Tag",
   "description": "Definition for a Tag meant to be referenced from other schemas.",
-  // prevents this from being referenced directly
   "type": "null",
   "$defs": {
     "common-properties": {

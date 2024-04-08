@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/attribute.definitions.json",
   "title": "Attribute",
   "description": "Definition for tag attribute meant to be referenced from other schemas.",
   "$defs": {
@@ -20,11 +21,26 @@
         }
       }
     },
+    "attributeType": {
+      "type": "string",
+      "enum": [
+        "array",
+        "boolean",
+        "cssId",
+        "cssStyle",
+        "date",
+        "expression",
+        "flag",
+        "function",
+        "number",
+        "object",
+        "regexp",
+        "style",
+        "string"
+      ]
+    },
     "common-properties": {
-      "type": [
-        "string",
-        "object"
-      ],
+      "type": "object",
       "properties": {
         "autocomplete": {
           "oneOf": [
@@ -48,7 +64,10 @@
         },
         "enum": {
           "type": "array",
-          "uniqueItems": true
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
         },
         "html": {
           "type": "boolean",
@@ -65,22 +84,7 @@
           "type": "boolean"
         },
         "type": {
-          "type": "string",
-          "enum": [
-            "array",
-            "boolean",
-            "cssId",
-            "cssStyle",
-            "date",
-            "expression",
-            "flag",
-            "function",
-            "number",
-            "object",
-            "regexp",
-            "style",
-            "string"
-          ]
+          "$ref": "#/$defs/attributeType"
         }
       }
     },
@@ -127,22 +131,36 @@
     }
   },
   "camelCased": {
-    "allOf": [
+    "oneOf": [
       {
-        "$ref": "#/$defs/common-properties"
+        "$ref": "#/$defs/attributeType"
       },
       {
-        "$ref": "#/$defs/camelCased-properties"
+        "allOf": [
+          {
+            "$ref": "#/$defs/common-properties"
+          },
+          {
+            "$ref": "#/$defs/camelCased-properties"
+          }
+        ]
       }
     ]
   },
   "dash-cased": {
-    "allOf": [
+    "oneOf": [
       {
-        "$ref": "#/$defs/common-properties"
+        "$ref": "#/$defs/attributeType"
       },
       {
-        "$ref": "#/$defs/dashed-properties"
+        "allOf": [
+          {
+            "$ref": "#/$defs/common-properties"
+          },
+          {
+            "$ref": "#/$defs/dashed-properties"
+          }
+        ]
       }
     ]
   },

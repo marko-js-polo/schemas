@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://marko-js-polo.github.io/json-schemas/schemas/definitions/parsing-options.definitions.json",
   "title": "parsing-options",
   "description": "Definition for parsing related properties meant to be referenced from other schemas.",
   "type": "null",
