@@ -32,13 +32,13 @@ $defs:
     allOf:
       - title: "object :: Nested Tag (camelCased)"
         $ref: "#/$defs/info"
-      - $ref: ./tag.base.yaml#/$defs/camelCased
-      - $ref: ./tag.base.yaml#/$defs/nested-tag-properties
+      - $ref: /models/tag.base.yaml#/$defs/camelCased
+      - $ref: /models/tag.base.yaml#/$defs/nested-tag-properties
 
   dash-cased:
     type: object
     allOf:
       - title: "object :: Nested Tag (dash-cased)"
         $ref: "#/$defs/info"
-      - $ref: ./tag.base.yaml#/$defs/dash-cased
-      - $ref: ./tag.base.yaml#/$defs/nested-tag-properties
+      - $ref: /models/tag.base.yaml#/$defs/dash-cased
+      - $ref: /models/tag.base.yaml#/$defs/nested-tag-properties

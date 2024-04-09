@@ -37,7 +37,7 @@ allOf:
         - title: "Marko Library (camelCased)"
 
         # marko.yaml is a superset of marko-tag.yaml
-        - $ref: ./models/tag.yaml#/$defs/camelCased
+        - $ref: /models/tag.yaml#/$defs/camelCased
         - $ref: "#/$defs/base"
         - $ref: "#/$defs/camelCased-properties"
       unevaluatedProperties: false
@@ -45,7 +45,7 @@ allOf:
     - allOf:
         - title: "Marko Library (dash-cased)"
         # marko.yaml is a superset of marko-tag.yaml
-        - $ref: ./models/tag.yaml#/$defs/dash-cased
+        - $ref: /models/tag.yaml#/$defs/dash-cased
         - $ref: "#/$defs/base"
         - $ref: "#/$defs/dash-cased-properties"
       unevaluatedProperties: false

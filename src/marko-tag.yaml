@@ -22,11 +22,11 @@ allOf:
     - unevaluatedProperties: false
       allOf:
         - title: "Marko Tag (camelCased)"
-        - $ref: ./models/tag.yaml#/$defs/camelCased
+        - $ref: /models/tag.yaml#/$defs/camelCased
 
     - unevaluatedProperties: false
       allOf:
         - title: "Marko Tag (dash-cased)"
-        - $ref: ./models/tag.yaml#/$defs/dash-cased
+        - $ref: /models/tag.yaml#/$defs/dash-cased
 
 

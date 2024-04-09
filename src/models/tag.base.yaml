@@ -14,21 +14,21 @@ anyOf:
 $defs:
   base:
     allOf:
-      - $ref: ../property-groups/file-mappings.yaml
-      - $ref: ../property-groups/shorthands.yaml
+      - $ref: /property-groups/file-mappings.yaml
+      - $ref: /property-groups/shorthands.yaml
   camelCased:
     title: "Tag Base :: camelCased"
     allOf:
-      - $ref: ../property-groups/file-mappings.yaml
-      - $ref: ../property-groups/shorthands.yaml
-      - $ref: ../property-groups/compiler-hooks.yaml#/camelCased
-      - $ref: ../property-groups/shared.yaml#/camelCased
+      - $ref: /property-groups/file-mappings.yaml
+      - $ref: /property-groups/shorthands.yaml
+      - $ref: /property-groups/compiler-hooks.yaml#/camelCased
+      - $ref: /property-groups/shared.yaml#/camelCased
   dash-cased:
     title: "Tag Base :: dash-cased"
     allOf:
       - $ref: "#/$defs/base"
-      - $ref: ../property-groups/compiler-hooks.yaml#/dash-cased
-      - $ref: ../property-groups/shared.yaml#/dash-cased
+      - $ref: /property-groups/compiler-hooks.yaml#/dash-cased
+      - $ref: /property-groups/shared.yaml#/dash-cased
   topLevel-tag-properties:
     title: Attribute Groups
     anyOf:
@@ -43,7 +43,7 @@ $defs:
               definitions.
             patternProperties:
               .*:
-                $ref: ../utils/maps.yaml#/attribute-map
+                $ref: /utils/maps.yaml#/attribute-map
       - type: object
         not:
           required:
@@ -55,7 +55,7 @@ $defs:
               definitions.
             patternProperties:
               .*:
-                $ref: ../utils/maps.yaml#/attribute-map
+                $ref: /utils/maps.yaml#/attribute-map
   nested-tag-properties:
     title: Attribute Groups
     anyOf:

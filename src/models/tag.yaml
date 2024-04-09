@@ -19,11 +19,11 @@ $defs:
   camelCased:
     allOf:
       - title: "object :: Tag (camelCased)"
-      - $ref: ./tag.base.yaml#/$defs/camelCased
-      - $ref: ./tag.base.yaml#/$defs/topLevel-tag-properties
+      - $ref: /models/tag.base.yaml#/$defs/camelCased
+      - $ref: /models/tag.base.yaml#/$defs/topLevel-tag-properties
 
   dash-cased:
     allOf:
       - title: "object :: Tag (dash-cased)"
-      - $ref: ./tag.base.yaml#/$defs/dash-cased
-      - $ref: ./tag.base.yaml#/$defs/topLevel-tag-properties
+      - $ref: /models/tag.base.yaml#/$defs/dash-cased
+      - $ref: /models/tag.base.yaml#/$defs/topLevel-tag-properties

@@ -6,13 +6,13 @@ description: Shorthand properties are pattern based (regex) properties used for
 type: object
 patternProperties:
   ^<.+>$:
-    $ref: ../models/tag.nested.yaml
+    $ref: /models/tag.nested.yaml
   ^<.+>\[\]$:
-    $ref: ../models/tag.nested.yaml
+    $ref: /models/tag.nested.yaml
   ^@.+ <.+>$:
-    $ref: ../models/tag.nested.yaml
+    $ref: /models/tag.nested.yaml
   ^@.+ <.+>\[\]$:
-    $ref: ../models/tag.nested.yaml
+    $ref: /models/tag.nested.yaml
   ^@.+$:
-    $ref: ../models/attribute.yaml
+    $ref: /models/attribute.yaml
 x-internal: true
