@@ -1,8 +1,10 @@
 {
-  "taglib-id": "@marko/taglib-id",
+  "exports": "",
+  // "taglib-id": "@marko/taglib-id",
   // alias for taglib-id
   // "taglibId": "@marko/taglib-id",
   "tags-dir": "./src/components",
+
   // alias for tags-dir
   // "tagsDir": "./src/components",
 

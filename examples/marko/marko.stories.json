@@ -3,8 +3,8 @@
   "tags-dir": "../dist/components",
   "exports": "../dist/components",
   "<stories>": {
-    "@component": "Component",
-    "@as": "Object",
+    "@component": "#s",
+    "@as": "object",
     "@value": "string",
     "@defaults": {
       "@args": {
@@ -22,7 +22,7 @@
     },
     "<story>[]": {
       "@name": "string",
-      "@value": "StoryObj",
+      "@value": "expression",
       "@args": {
         "@*": {
           "target-property": null,
