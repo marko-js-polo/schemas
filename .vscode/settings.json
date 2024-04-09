@@ -1,5 +1,10 @@
 {
-  "cSpell.words": ["markoc", "taglib", "textto"],
+  "cSpell.words": [
+    "hyperjump",
+    "markoc",
+    "taglib",
+    "textto"
+  ],
   "eslint.validate": [
     "javascript",
     "json",
@@ -9,6 +14,11 @@
     "toml",
     "typescript"
   ],
+  "yaml.schemas": {
+    "https://json-schema.org/draft/2019-09/schema": [
+      "src/**/*.yaml"
+    ]
+  },
   "json.schemas": [
     {
       "fileMatch": [

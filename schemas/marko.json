@@ -18,7 +18,7 @@
               "title": "Marko Library (camelCased)"
             },
             {
-              "$ref": "./models/tag.json#/$defs/camelCased"
+              "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag#/$defs/camelCased"
             },
             {
               "$ref": "#/$defs/base"
@@ -35,7 +35,7 @@
               "title": "Marko Library (dash-cased)"
             },
             {
-              "$ref": "./models/tag.json#/$defs/dash-cased"
+              "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag#/$defs/dash-cased"
             },
             {
               "$ref": "#/$defs/base"

@@ -27,7 +27,7 @@
               "title": "Marko Tag (camelCased)"
             },
             {
-              "$ref": "./models/tag.json#/$defs/camelCased"
+              "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag#/$defs/camelCased"
             }
           ]
         },
@@ -38,7 +38,7 @@
               "title": "Marko Tag (dash-cased)"
             },
             {
-              "$ref": "./models/tag.json#/$defs/dash-cased"
+              "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag#/$defs/dash-cased"
             }
           ]
         }

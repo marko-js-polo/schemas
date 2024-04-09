@@ -9,7 +9,7 @@
     "description": "Defines the attributes that the tag supports.",
     "patternProperties": {
       "[^\\s]+": {
-        "$ref": "../models/attribute.json"
+        "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute"
       }
     }
   },
@@ -18,7 +18,7 @@
     "description": "Defines the attributes that the tag supports.",
     "patternProperties": {
       "[^\\s]+": {
-        "$ref": "../models/tag.nested.json"
+        "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested"
       }
     }
   }

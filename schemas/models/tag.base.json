@@ -17,10 +17,10 @@
     "base": {
       "allOf": [
         {
-          "$ref": "../property-groups/file-mappings.json"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/file-mappings"
         },
         {
-          "$ref": "../property-groups/shorthands.json"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/shorthands"
         }
       ]
     },
@@ -28,16 +28,16 @@
       "title": "Tag Base :: camelCased",
       "allOf": [
         {
-          "$ref": "../property-groups/file-mappings.json"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/file-mappings"
         },
         {
-          "$ref": "../property-groups/shorthands.json"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/shorthands"
         },
         {
-          "$ref": "../property-groups/compiler-hooks.json#/camelCased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/compiler-hooks#/camelCased"
         },
         {
-          "$ref": "../property-groups/shared.json#/camelCased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/shared#/camelCased"
         }
       ]
     },
@@ -48,10 +48,10 @@
           "$ref": "#/$defs/base"
         },
         {
-          "$ref": "../property-groups/compiler-hooks.json#/dash-cased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/compiler-hooks#/dash-cased"
         },
         {
-          "$ref": "../property-groups/shared.json#/dash-cased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/property-groups/shared#/dash-cased"
         }
       ]
     },
@@ -71,7 +71,7 @@
               "description": "Defines groups of attributes that can then be referenced from tag definitions.",
               "patternProperties": {
                 ".*": {
-                  "$ref": "../utils/maps.json#/attribute-map"
+                  "$ref": "https://saulo.engineer/contributes/marko-js/schemas/utils/maps#/attribute-map"
                 }
               }
             }
@@ -90,7 +90,7 @@
               "description": "Defines groups of attributes that can then be referenced from tag definitions.",
               "patternProperties": {
                 ".*": {
-                  "$ref": "../utils/maps.json#/attribute-map"
+                  "$ref": "https://saulo.engineer/contributes/marko-js/schemas/utils/maps#/attribute-map"
                 }
               }
             }

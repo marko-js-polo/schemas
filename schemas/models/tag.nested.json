@@ -28,10 +28,10 @@
           "$ref": "#/$defs/info"
         },
         {
-          "$ref": "./tag.base.json#/$defs/camelCased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/camelCased"
         },
         {
-          "$ref": "./tag.base.json#/$defs/nested-tag-properties"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/nested-tag-properties"
         }
       ]
     },
@@ -43,10 +43,10 @@
           "$ref": "#/$defs/info"
         },
         {
-          "$ref": "./tag.base.json#/$defs/dash-cased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/dash-cased"
         },
         {
-          "$ref": "./tag.base.json#/$defs/nested-tag-properties"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/nested-tag-properties"
         }
       ]
     }

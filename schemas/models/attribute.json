@@ -8,10 +8,10 @@
   ],
   "oneOf": [
     {
-      "$ref": "./attribute.string.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/attrribute.string"
     },
     {
-      "$ref": "./attribute.object.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/attrribute.object"
     }
   ]
 }

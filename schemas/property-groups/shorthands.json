@@ -6,19 +6,19 @@
   "type": "object",
   "patternProperties": {
     "^<.+>$": {
-      "$ref": "../models/tag.nested.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested"
     },
     "^<.+>\\[\\]$": {
-      "$ref": "../models/tag.nested.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested"
     },
     "^@.+ <.+>$": {
-      "$ref": "../models/tag.nested.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested"
     },
     "^@.+ <.+>\\[\\]$": {
-      "$ref": "../models/tag.nested.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested"
     },
     "^@.+$": {
-      "$ref": "../models/attribute.json"
+      "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute"
     }
   },
   "x-internal": true

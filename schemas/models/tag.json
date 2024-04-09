@@ -21,10 +21,10 @@
           "title": "object :: Tag (camelCased)"
         },
         {
-          "$ref": "./tag.base.json#/$defs/camelCased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/camelCased"
         },
         {
-          "$ref": "./tag.base.json#/$defs/topLevel-tag-properties"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/topLevel-tag-properties"
         }
       ]
     },
@@ -34,10 +34,10 @@
           "title": "object :: Tag (dash-cased)"
         },
         {
-          "$ref": "./tag.base.json#/$defs/dash-cased"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/dash-cased"
         },
         {
-          "$ref": "./tag.base.json#/$defs/topLevel-tag-properties"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base#/$defs/topLevel-tag-properties"
         }
       ]
     }

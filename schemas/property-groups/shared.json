@@ -8,7 +8,7 @@
     "base": {
       "properties": {
         "attributes": {
-          "$ref": "../utils/maps.json#/attribute-map"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/utils/maps#/attribute-map"
         },
         "autocomplete": {
           "type": "array",
@@ -77,7 +77,7 @@
         },
         "nestedTags": {
           "description": "Describes nested tags within this tag. Each nested tag can have its own attributes and configuration.",
-          "$ref": "../utils/maps.json#/tag-map"
+          "$ref": "https://saulo.engineer/contributes/marko-js/schemas/utils/maps#/tag-map"
         },
         "openTagOnly": {
           "type": "boolean",
