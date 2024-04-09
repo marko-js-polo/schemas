@@ -1,6 +1,7 @@
 {
   "exclude": [
-    ".vscode"
+    ".vscode",
+    "schemas"
   ],
   "formats": {
     "openapi": {
@@ -10,7 +11,7 @@
       ]
     },
     "json_schema": {
-      "rootDir": "schemas/definitions",
+      "rootDir": "schemas",
       "include": [
         "**"
       ]
