@@ -21,16 +21,24 @@ anyOf:
     $ref: "#/$defs/dash-cased"
 
 $defs:
+  info:
+    description: >-
+      The only difference between a top-level tag and a nested tag is in the `attributeGroups` property.
+
+      While a top-level tag (or a Marko library) creates attribute groups, nested tags only use those groups.
+
   camelCased:
-    title: "object :: Nested Tag (camelCased)"
     type: object
     allOf:
+      - title: "object :: Nested Tag (camelCased)"
+        $ref: "#/$defs/info"
       - $ref: ./tag.base.yaml#/$defs/camelCased
       - $ref: ./tag.base.yaml#/$defs/nested-tag-properties
 
   dash-cased:
-    title: "object :: Nested Tag (dash-cased)"
     type: object
     allOf:
+      - title: "object :: Nested Tag (dash-cased)"
+        $ref: "#/$defs/info"
       - $ref: ./tag.base.yaml#/$defs/dash-cased
       - $ref: ./tag.base.yaml#/$defs/nested-tag-properties

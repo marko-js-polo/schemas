@@ -10,7 +10,7 @@ oneOf:
 
   - title: Attribute reference
     type: string
-    pattern: ^#
+    pattern: ^#[\w]+.*
     description: >-
       A key from the root-level `attributes` object.
 

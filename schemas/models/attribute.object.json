@@ -1,70 +1,15 @@
 {
-  "title": "Attribute Object",
   "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute.object",
-  "x-stoplight": {
-    "id": "f5en34vmmp81x"
-  },
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Attribute Object",
   "description": "An Attribute definition object which allows customizing the details of a tag attribute.",
-  "$defs": {
-    "camelCased": {
-      "title": "object :: camelCased",
-      "type": "object",
-      "description": "An Attribute definition object with camelCased properties",
-      "allOf": [
-        {
-          "$ref": "./attribute.base.json#/$defs/base",
-          "x-stoplight": {
-            "id": "gmcptyb6ohq09"
-          }
-        },
-        {
-          "$ref": "./attribute.base.json#/$defs/camelCased-properties",
-          "x-stoplight": {
-            "id": "yi01buw848adl"
-          }
-        }
-      ],
-      "x-stoplight": {
-        "id": "l6tgut7561nns"
-      }
-    },
-    "dash-cased": {
-      "title": "object :: dash-cased",
-      "allOf": [
-        {
-          "$ref": "./attribute.base.json#/$defs/base",
-          "x-stoplight": {
-            "id": "2j5vz3wnxdi7j"
-          }
-        },
-        {
-          "$ref": "./attribute.base.json#/$defs/dash-cased-properties",
-          "x-stoplight": {
-            "id": "8zyjfp5ezr4pr"
-          }
-        }
-      ],
-      "x-stoplight": {
-        "id": "azldjnmjmpk12"
-      }
-    }
-  },
   "type": "object",
-  "oneOf": [
+  "anyOf": [
     {
-      "title": "Property style: camelCased",
-      "$ref": "#/$defs/camelCased",
-      "x-stoplight": {
-        "id": "9h73q4bcxtlr7"
-      }
+      "$ref": "#/$defs/camelCased"
     },
     {
-      "title": "Property style: dash-cased",
-      "$ref": "#/$defs/dash-cased",
-      "x-stoplight": {
-        "id": "hl4j3i4wj9jgm"
-      }
+      "$ref": "#/$defs/dash-cased"
     }
   ],
   "examples": [
@@ -76,5 +21,31 @@
         "secondary"
       ]
     }
-  ]
+  ],
+  "$defs": {
+    "camelCased": {
+      "title": "object :: Attribute (camelCased)",
+      "type": "object",
+      "description": "An Attribute definition object with camelCased properties",
+      "allOf": [
+        {
+          "$ref": "./attribute.base.json#/$defs/base"
+        },
+        {
+          "$ref": "./attribute.base.json#/$defs/camelCased-properties"
+        }
+      ]
+    },
+    "dash-cased": {
+      "title": "object :: Attribute (dash-cased)",
+      "allOf": [
+        {
+          "$ref": "./attribute.base.json#/$defs/base"
+        },
+        {
+          "$ref": "./attribute.base.json#/$defs/dash-cased-properties"
+        }
+      ]
+    }
+  }
 }

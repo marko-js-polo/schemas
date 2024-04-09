@@ -1,14 +1,32 @@
 {
-  "title": "Nested Tag",
   "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "description": "The only difference between a top-level tag and a nested tag is in the `attributeGroups` property.\n\nWhile a top-level tag (or a Marko library) creates attribute groups, nested tags only use those groups.",
-  
+  "x-internal": false,
+  "title": "Nested Tag",
+  "description": "The only difference between a top-level tag and a nested tag is in the `attributeGroups` property.\nWhile a top-level tag (or a Marko library) creates attribute groups, nested tags only use those groups.",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "anyOf": [
+    {
+      "title": "object :: Nested Tag (camelCased)",
+      "$ref": "#/$defs/camelCased"
+    },
+    {
+      "title": "object :: Nested Tag (dash-cased)",
+      "$ref": "#/$defs/dash-cased"
+    }
+  ],
   "$defs": {
+    "info": {
+      "description": "The only difference between a top-level tag and a nested tag is in the `attributeGroups` property.\nWhile a top-level tag (or a Marko library) creates attribute groups, nested tags only use those groups."
+    },
     "camelCased": {
-      "title": "Tag :: camelCased",
       "type": "object",
       "allOf": [
+        {
+          "title": "object :: Nested Tag (camelCased)",
+          "$ref": "#/$defs/info"
+        },
         {
           "$ref": "./tag.base.json#/$defs/camelCased"
         },
@@ -18,9 +36,12 @@
       ]
     },
     "dash-cased": {
-      "title": "Tag :: dash-cased",
       "type": "object",
       "allOf": [
+        {
+          "title": "object :: Nested Tag (dash-cased)",
+          "$ref": "#/$defs/info"
+        },
         {
           "$ref": "./tag.base.json#/$defs/dash-cased"
         },
@@ -29,18 +50,5 @@
         }
       ]
     }
-  },
-
-  "unevaluatedProperties": false,
-  "type": "object",
-  
-  "oneOf": [
-    {
-      "$ref": "#/$defs/camelCased"
-    },
-    {
-      "$ref": "#/$defs/dash-cased"
-    }
-  ],
-  "x-internal": false
+  }
 }

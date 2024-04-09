@@ -1,31 +1,48 @@
 {
-  "title": "marko-tag.json Schema",
-  "$id": "https://saulo.engineer/contributes/marko-js/schemas/marko-tag.json",
+  "$id": "https://saulo.engineer/contributes/marko-js/schemas/marko-tag",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "description": "Schema for `marko-tag.json` files, used for defining a single tag.",
   "type": "object",
-  "$defs": {
-    "camelCased": {
-      "title": "Property style :: camel",
-      "$ref": "./models/tag.json"
-    }
-  },
-  
+  "title": "marko-tag.yaml Schema",
+  "description": "Schema for `marko-tag.yaml` files, used for defining a single tag.",
   "allOf": [
     {
-      "title": "JSON properties",
+      "description": "The marko-tag.json file configures a single component. It's automatically discovered if placed inside a tag directory."
+    },
+    {
       "type": "object",
       "properties": {
         "$schema": {
           "title": "$schema",
-          "default": "https://saulo.engineer/contributes/marko-js/schemas/marko-tag.json",
+          "default": "https://saulo.engineer/contributes/marko-js/schemas/marko-tag",
           "type": "string"
         }
       }
     },
     {
-      "type": "object",
-      "$ref": "#/$defs/camelCased"
+      "anyOf": [
+        {
+          "unevaluatedProperties": false,
+          "allOf": [
+            {
+              "title": "Marko Tag (camelCased)"
+            },
+            {
+              "$ref": "./models/tag.json#/$defs/camelCased"
+            }
+          ]
+        },
+        {
+          "unevaluatedProperties": false,
+          "allOf": [
+            {
+              "title": "Marko Tag (dash-cased)"
+            },
+            {
+              "$ref": "./models/tag.json#/$defs/dash-cased"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

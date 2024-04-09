@@ -1,9 +1,18 @@
 {
-  "title": "Tag Base",
   "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/tag.base",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Tag Base",
   "description": "Base definitions for a Tag.",
   "type": "object",
+  "unevaluatedProperties": false,
+  "anyOf": [
+    {
+      "$ref": "#/$defs/camelCased"
+    },
+    {
+      "$ref": "#/$defs/dash-cased"
+    }
+  ],
   "$defs": {
     "base": {
       "allOf": [
@@ -48,41 +57,85 @@
     },
     "topLevel-tag-properties": {
       "title": "Attribute Groups",
-      "type": "object",
-      "properties": {
-        "attributeGroups": {
+      "anyOf": [
+        {
           "type": "object",
-          "description": "Defines groups of attributes that can then be referenced from tag definitions.",
-          "patternProperties": {
-            ".*": {
-              "$ref": "../utils/maps.json#/attribute-map"
+          "not": {
+            "required": [
+              "attribute-groups"
+            ]
+          },
+          "properties": {
+            "attributeGroups": {
+              "type": "object",
+              "description": "Defines groups of attributes that can then be referenced from tag definitions.",
+              "patternProperties": {
+                ".*": {
+                  "$ref": "../utils/maps.json#/attribute-map"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "not": {
+            "required": [
+              "attributeGroups"
+            ]
+          },
+          "properties": {
+            "attribute-groups": {
+              "type": "object",
+              "description": "Defines groups of attributes that can then be referenced from tag definitions.",
+              "patternProperties": {
+                ".*": {
+                  "$ref": "../utils/maps.json#/attribute-map"
+                }
+              }
             }
           }
         }
-      }
+      ]
     },
     "nested-tag-properties": {
       "title": "Attribute Groups",
-      "type": "object",
-      "properties": {
-        "attributeGroups": {
-          "type": "array",
-          "description": "Names of attribute groups that should be added to this tag.",
-          "items": {
-            "type": "string"
+      "anyOf": [
+        {
+          "type": "object",
+          "not": {
+            "required": [
+              "attribute-groups"
+            ]
+          },
+          "properties": {
+            "attributeGroups": {
+              "type": "array",
+              "description": "Names of attribute groups that should be added to this tag.",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "not": {
+            "required": [
+              "attributeGroups"
+            ]
+          },
+          "properties": {
+            "attribute-groups": {
+              "type": "array",
+              "description": "Names of attribute groups that should be added to this tag.",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
-      }
+      ]
     }
-  },
-  "anyOf": [
-    {
-      "unevaluatedProperties": false,
-      "$ref": "#/$defs/camelCased"
-    },
-    {
-      "unevaluatedProperties": false,
-      "$ref": "#/$defs/dash-cased"
-    }
-  ]
+  }
 }

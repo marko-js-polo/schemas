@@ -1,12 +1,24 @@
 {
-  "title": "Attribute Type",
   "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute.string",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "description": "The type of a tag attribute.",
-  "$ref": "./attribute.base.json#/$defs/attributeType",
+  "oneOf": [
+    {
+      "title": "Attribute type",
+      "type": "string",
+      "description": "The type of the attribute.",
+      "$ref": "./attribute.base.json#/$defs/attributeType"
+    },
+    {
+      "title": "Attribute reference",
+      "type": "string",
+      "pattern": "^#[\\w]+.*",
+      "description": "A key from the root-level `attributes` object.\nExample:\nIn the code below, the attribute `#cmp-variant`, is defined once in `attributes` and referenced by `<FancyButton>` and `<Panel>`.\n``.yaml {\n  \"attributes\": {\n    \"cmp-variant\": {\n      \"name\": \"variant\",\n      \"type\": \"string\"\n    }\n  },\n  \"<FancyButton>\": {\n    \"@variant\": \"#cmp-variant\"\n  },\n  \"<Panel>\": {\n    \"@variant\": \"#cmp-variant\"\n  }\n} ```"
+    }
+  ],
   "examples": [
     "boolean",
-    "array"
+    "array",
+    "#"
   ],
   "x-internal": false
 }

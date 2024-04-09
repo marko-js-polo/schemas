@@ -1,11 +1,11 @@
 title: Library and Tag shared properties
 $id: https://saulo.engineer/contributes/marko-js/schemas/property-groups/shared
 $schema: https://json-schema.org/draft/2019-09/schema
-description: Combines all properties shared by tags (`marko-tag.json`) and
-  library (`marko.json`) schemas.
+description: Combines all properties shared by tags (`marko-tag.yaml`) and
+  library (`marko.yaml`) schemas.
 type: object
 $defs:
-  common-properties:
+  base:
     properties:
       attributes:
         $ref: ../utils/maps.yaml#/attribute-map
@@ -71,7 +71,7 @@ $defs:
         type: boolean
         description: Prohibits the tag from having any children
       parseOptions:
-        $ref: ./parse-options.yaml#/camelCased
+        $ref: ./parse-options.yaml
       removeDashes:
         type: boolean
         default: false
@@ -98,15 +98,15 @@ $defs:
       remove-dashes:
         $ref: "#/$defs/camelCased-properties/properties/removeDashes"
       parse-options:
-        $ref: ./parse-options.yaml#/dash-cased
+        $ref: ./parse-options.yaml
       target-property:
         $ref: "#/$defs/camelCased-properties/properties/targetProperty"
 camelCased:
   allOf:
-    - $ref: "#/$defs/common-properties"
+    - $ref: "#/$defs/base"
     - $ref: "#/$defs/camelCased-properties"
 dash-cased:
   allOf:
-    - $ref: "#/$defs/common-properties"
+    - $ref: "#/$defs/base"
     - $ref: "#/$defs/dash-cased-properties"
 x-internal: true

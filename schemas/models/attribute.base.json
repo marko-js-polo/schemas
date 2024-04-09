@@ -1,41 +1,26 @@
 {
-  "title": "Attribute Base",
   "$id": "https://saulo.engineer/contributes/marko-js/schemas/models/attribute.base",
-  "x-internal": true,
-  "description": "Base definitions for tag attributes.\n- **`@internal`**\n- `@path` `/schemas/attribute/attribute.base.json`\n\n### Properties",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "x-internal": true,
+  "title": "Attribute Base",
+  "description": "Base definitions for tag attributes.",
   "$defs": {
     "autocompleteItem": {
       "type": "object",
       "title": "autocomplete item",
       "properties": {
         "description": {
-          "type": "string",
-          "x-stoplight": {
-            "id": "rwhn3tq0ufsbp"
-          }
+          "type": "string"
         },
         "descriptionMoreURL": {
-          "type": "string",
-          "x-stoplight": {
-            "id": "vp9vtzya4tu6d"
-          }
+          "type": "string"
         },
         "displayText": {
-          "type": "string",
-          "x-stoplight": {
-            "id": "mlfec5p1bh7s9"
-          }
+          "type": "string"
         },
         "snippet": {
-          "type": "string",
-          "x-stoplight": {
-            "id": "cdiu1ni2swefn"
-          }
+          "type": "string"
         }
-      },
-      "x-stoplight": {
-        "id": "jmm8vjrw51s5m"
       }
     },
     "attributeType": {
@@ -55,10 +40,7 @@
         "regexp",
         "style",
         "string"
-      ],
-      "x-stoplight": {
-        "id": "cctngwtlnmul3"
-      }
+      ]
     },
     "base": {
       "properties": {
@@ -66,84 +48,45 @@
           "oneOf": [
             {
               "type": "object",
-              "$ref": "#/$defs/autocompleteItem",
-              "x-stoplight": {
-                "id": "u7jkaetc1yz3q"
-              }
+              "$ref": "#/$defs/autocompleteItem"
             },
             {
               "type": "array",
               "items": {
-                "$ref": "#/$defs/autocompleteItem",
-                "x-stoplight": {
-                  "id": "wxlyrp7cb5lkw"
-                }
-              },
-              "x-stoplight": {
-                "id": "pqtpcuv1dar2h"
+                "$ref": "#/$defs/autocompleteItem"
               }
             }
-          ],
-          "x-stoplight": {
-            "id": "n6e949hp2ikqg"
-          }
+          ]
         },
         "deprecated": {
-          "type": "boolean",
-          "x-stoplight": {
-            "id": "bitu1eiqcf82t"
-          }
+          "type": "boolean"
         },
         "description": {
-          "type": "string",
-          "x-stoplight": {
-            "id": "xlxgtzyl2e2wu"
-          }
+          "type": "string"
         },
         "enum": {
           "type": "array",
           "uniqueItems": true,
           "items": {
-            "type": "string",
-            "x-stoplight": {
-              "id": "398hzj4zzuywh"
-            }
-          },
-          "x-stoplight": {
-            "id": "1fpe5zo3p9rqu"
+            "type": "string"
           }
         },
         "html": {
           "type": "boolean",
-          "description": "Indicates whether the attribute is considered to be standard HTML.",
-          "x-stoplight": {
-            "id": "433fvncctc5y0"
-          }
+          "description": "Indicates whether the attribute is considered to be standard HTML."
         },
         "name": {
           "type": "string",
-          "description": "The name of the attribute.\n Overrides the name set from the '@' shorthand or the key used in 'attributes'.",
-          "x-stoplight": {
-            "id": "i2qkxinesmngw"
-          }
+          "description": "The name of the attribute.\nOverrides the name set from the '@' shorthand or the key used in'attributes'."
         },
         "pattern": {
-          "type": "boolean",
-          "x-stoplight": {
-            "id": "2xuslk3lxqwlp"
-          }
+          "type": "boolean"
         },
         "required": {
-          "type": "boolean",
-          "x-stoplight": {
-            "id": "8gl2b65mgrx7m"
-          }
+          "type": "boolean"
         },
         "type": {
-          "$ref": "#/$defs/attributeType",
-          "x-stoplight": {
-            "id": "8puj9b84rf1zl"
-          }
+          "$ref": "#/$defs/attributeType"
         }
       }
     },
@@ -159,35 +102,20 @@
             "array",
             "boolean",
             "null"
-          ],
-          "x-stoplight": {
-            "id": "xz6yakc7per1k"
-          }
+          ]
         },
         "preserveName": {
           "type": "boolean",
-          "description": "[not documented yet]",
-          "x-stoplight": {
-            "id": "n9nccb6ll8wgj"
-          }
+          "description": "[not documented yet]"
         },
         "removeDashes": {
           "type": "boolean",
-          "description": "[not documented yet]",
-          "x-stoplight": {
-            "id": "owp3orj2i1c7h"
-          }
+          "description": "[not documented yet]"
         },
         "targetProperty": {
           "type": "string",
-          "description": "Sets the name of the input property that will receive the attribute(s) value.\nUseful for pluralizing the property name of a repeated attribute tag.\n Example: putting `<@tab>` tags into `input.tabs`.",
-          "x-stoplight": {
-            "id": "p2yeg39mui1jz"
-          }
+          "description": "Sets the name of the input property that will receive the attribute(s) value.\nUseful for pluralizing the property name of a repeated attribute tag.\n Example: putting `<@tab>` tags into `input.tabs`."
         }
-      },
-      "x-stoplight": {
-        "id": "zpmhcsu0uh5rn"
       }
     },
     "dash-cased-properties": {
@@ -195,34 +123,18 @@
       "type": "object",
       "properties": {
         "default-value": {
-          "$ref": "#/$defs/camelCased-properties/properties/defaultValue",
-          "x-stoplight": {
-            "id": "q3uwkkclgojrn"
-          }
+          "$ref": "#/$defs/camelCased-properties/properties/defaultValue"
         },
         "preserve-name": {
-          "$ref": "#/$defs/camelCased-properties/properties/preserveName",
-          "x-stoplight": {
-            "id": "tqr5x63yhy9e3"
-          }
+          "$ref": "#/$defs/camelCased-properties/properties/preserveName"
         },
         "remove-dashes": {
-          "$ref": "#/$defs/camelCased-properties/properties/removeDashes",
-          "x-stoplight": {
-            "id": "dph6hq8ypx46g"
-          }
+          "$ref": "#/$defs/camelCased-properties/properties/removeDashes"
         },
         "target-property": {
-          "$ref": "#/$defs/camelCased-properties/properties/targetProperty",
-          "x-stoplight": {
-            "id": "gda5rzvyaeqpd"
-          }
+          "$ref": "#/$defs/camelCased-properties/properties/targetProperty"
         }
-      },
-      "x-stoplight": {
-        "id": "c5738233xkm16"
       }
     }
-  },
-  "type": "object"
+  }
 }
