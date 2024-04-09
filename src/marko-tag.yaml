@@ -1,0 +1,17 @@
+title: marko-tag.json Schema
+$id: https://saulo.engineer/contributes/marko-js/schemas/marko-tag.json
+$schema: https://json-schema.org/draft/2019-09/schema
+description: Schema for `marko-tag.json` files, used for defining a single tag.
+type: object
+
+allOf:
+  - title: JSON properties
+    type: object
+    properties:
+      $schema:
+        title: $schema
+        default: https://saulo.engineer/contributes/marko-js/schemas/marko-tag.json
+        type: string
+
+  - type: object
+    $ref: ./models/tag.yaml

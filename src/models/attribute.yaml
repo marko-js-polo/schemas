@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://json-schema.org/draft/2019-09/schema
+$id: https://saulo.engineer/contributes/marko-js/schemas/models/attribute
+$schema: https://json-schema.org/draft/2019-09/schema
+x-stoplight:
+  id: 6df5e90f7563f
+
+description: >-
+  An attribute can be defined by simply setting it's type, but allows
+  customization of various aspects when defined using an object.
+
+  You can als define an attribute in the root-level property `attributes`
+  and later reference it by prefixing its key in the attributes map with a `#`.
+
+type:
+  - object
+  - string
+
+anyOf:
+  - title: "object :: Attribute (camelCased)"
+    $ref: ./attribute.object.yaml#/$defs/camelCased
+
+  - title: "object :: Attribute (dash-cased)"
+    $ref: ./attribute.object.yaml#/$defs/dash-cased
+
+  - $ref: ./attribute.string.yaml

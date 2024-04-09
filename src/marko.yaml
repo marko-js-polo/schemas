@@ -1,0 +1,58 @@
+title: marko.json Schema
+$id: https://saulo.engineer/contributes/marko-js/schemas/marko.yaml
+$schema: https://json-schema.org/draft/2019-09/schema
+description: The `marko.json` can be used to identify and document an entire
+  library of tags. Compiler hooks, file mappings, and attributes defined here
+  will be applied to all tags.
+type: object
+$defs:
+  base:
+    type: object
+    properties:
+      $schema:
+        title: $schema
+        default: https://saulo.engineer/contributes/marko-js/schemas/marko.yaml
+        type: string
+      exports:
+        type: string
+        description: Where the compiled components are exported.
+  camelCased:
+    title: "Marko Library :: camelCased"
+    type: object
+    $ref: "#/$defs/base"
+    properties:
+      tagsDir:
+        type: string
+        description: "What directory to crawl to autodiscover components. Default:
+          './components/'"
+      taglibId:
+        type: string
+        description: Names the component library, for better errors.
+      taglibImports:
+        type: array
+        items:
+          type: string
+        description: Creates a combined tag library by referencing others.
+  dash-cased:
+    title: "Marko Library :: dash-cased"
+    $ref: "#/$defs/base"
+    type: object
+    properties:
+      tags-dir:
+        $ref: "#/$defs/camelCased/properties/tagsDir"
+      taglib-id:
+        $ref: "#/$defs/camelCased/properties/taglibId"
+      taglib-imports:
+        $ref: "#/$defs/camelCased/properties/taglibImports"
+unevaluatedProperties: false
+allOf:
+  - title: JSON properties
+    type: object
+    properties:
+      $schema:
+        title: $schema
+        default: https://saulo.engineer/contributes/marko-js/schemas/marko-tag.yaml
+        type: string
+  - type: object
+    x-note: marko.json is a superset of marko-tag.yaml
+    $ref: ./marko-tag.yaml
