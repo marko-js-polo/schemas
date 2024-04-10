@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: Marko JS Schemas API
+  description: A fake OpenAPI description so we can have nice schema documentation.
+  version: 1.0.0
+
+paths:
+  /schemas/marko:
+    get:
+      summary: Marko Library Definition (marko.json)
+      responses:
+        '200':
+          description: Schema for the marko.json file
+          content:
+            application/json:
+              schema:
+                $ref: marko.yaml
+
+  /schemas/marko-tag:
+    get:
+      summary: Marko Tag Definition (marko-tag.json)
+      responses:
+        '200':
+          description: Schema for the marko-tag.json file
+          content:
+            application/json:
+              schema:
+                $ref: marko-tag.yaml
