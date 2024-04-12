@@ -13,57 +13,52 @@ x-info:
     Compiler hooks, file mappings, and attributes defined here
     will be applied to all tags.
 
+    Similar to marko-tag.json, this file is discovered if placed
+    within a tag directory. It will also be discovered at the root
+    directory of a project, or in a node_module package.
+
 type: object
 
-# unevaluatedProperties: false
-allOf:
-  # - unevaluatedProperties: false
+# DEV NOTE:
+# Creating a new item at the beginning of the anyOf below
+# to set a description will NOT WORK. Instead, it will make
+# VSCode apply the title of the file to all elements in the oneOf
+
+anyOf:
+  # setting title and description as the first
+  # element in an ALL_OF is the ONLY reliable way
+  # to ensure correct IDE support in VSCode
   - type: object
-    description: >-
-      Similar to marko-tag.json, this file is discovered if placed
-      within a tag directory. It will also be discovered at the root
-      directory of a project, or in a node_module package.
+    unevaluatedProperties: false
+    allOf:
+      - title: "Marko Library (camelCased)"
+        type: object
 
-    # DEV NOTE:
-    # Creating a new item at the beginning of the anyOf below
-    # to set a description will NOT WORK. Instead, it will make
-    # VSCode apply the title of the file to all elements in the oneOf
+      # marko.yaml is a superset of marko-tag.yaml
+      - $ref: ./models/tag.yaml#/$defs/camelCased
+        type: object
+
+      - $ref: "#/$defs/base"
+        type: object
+
+      - $ref: "#/$defs/camelCased-properties"
+        type: object
+
   - type: object
-    anyOf:
-      # setting title and description as the first
-      # element in an ALL_OF is the ONLY reliable way
-      # to ensure correct IDE support in VSCode
-      - type: object
-        unevaluatedProperties: false
-        allOf:
-          - title: "Marko Library (camelCased)"
-            type: object
+    unevaluatedProperties: false
+    allOf:
+      - title: "Marko Library (dash-cased)"
+        type: object
 
-          # marko.yaml is a superset of marko-tag.yaml
-          - $ref: ./models/tag.yaml#/$defs/camelCased
-            type: object
+      # marko.yaml is a superset of marko-tag.yaml
+      - $ref: ./models/tag.yaml#/$defs/dash-cased
+        type: object
 
-          - $ref: "#/$defs/base"
-            type: object
+      - $ref: "#/$defs/base"
+        type: object
 
-          - $ref: "#/$defs/camelCased-properties"
-            type: object
-
-      - type: object
-        unevaluatedProperties: false
-        allOf:
-          - title: "Marko Library (dash-cased)"
-            type: object
-
-          # marko.yaml is a superset of marko-tag.yaml
-          - $ref: ./models/tag.yaml#/$defs/dash-cased
-            type: object
-
-          - $ref: "#/$defs/base"
-            type: object
-
-          - $ref: "#/$defs/dash-cased-properties"
-            type: object
+      - $ref: "#/$defs/dash-cased-properties"
+        type: object
 
 $defs:
   base:
@@ -77,6 +72,10 @@ $defs:
       exports:
         type: string
         description: Where the compiled components are exported.
+
+      allOf:
+        - type: object
+          $ref: ./property-groups/shorthands.yaml
 
   camelCased-properties:
     type: object

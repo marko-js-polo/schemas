@@ -24,21 +24,11 @@ $defs:
         type: object
         $ref: ../property-groups/file-mappings.yaml
 
-      - 
-        type: object
-        $ref: ../property-groups/shorthands.yaml
-
   camelCased:
     title: "Tag Base :: camelCased"
     type: object
 
     allOf:
-      - $ref: ../property-groups/file-mappings.yaml
-        type: object
-
-      - $ref: ../property-groups/shorthands.yaml
-        type: object
-
       - $ref: ../property-groups/compiler-hooks.yaml#/camelCased
         type: object
         

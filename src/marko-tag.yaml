@@ -10,14 +10,18 @@ description: |-
 
 type: object
 allOf:
+
   - type: object
-    title: JSON Properties
+    title: JSON properties
     properties:
       $schema:
         title: $schema
         default: https://saulo.engineer/contributes/marko-js/schemas/marko-tag
         type: string
 
+  - type: object
+    $ref: ./property-groups/shorthands.yaml
+    
   - type: object
     anyOf:
       - type: object
@@ -39,5 +43,6 @@ allOf:
 
           - $ref: ./models/tag.yaml#/$defs/dash-cased
             type: object
+
 
 

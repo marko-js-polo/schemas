@@ -21,6 +21,14 @@ anyOf:
 $defs:
   camelCased:
     type: object
+
+    properties:
+      nestedTags:
+        type: object
+        description: Describes nested tags within this tag. Each nested tag can have its
+          own attributes and configuration.
+        $ref: ../utils/maps.yaml#/tag-map
+
     allOf:
       - title: "object :: Tag (camelCased)"
         type: object
@@ -30,9 +38,18 @@ $defs:
 
       - $ref: ../models/tag.base.yaml#/$defs/topLevel-tag-properties
         type: object
+        
 
   dash-cased:
     type: object
+    
+    properties:
+      nested-tags:
+        type: object
+        description: Describes nested tags within this tag. Each nested tag can have its
+          own attributes and configuration.
+        $ref: ../utils/maps.yaml#/tag-map
+
     allOf:
       - title: "object :: Tag (dash-cased)"
         type: object

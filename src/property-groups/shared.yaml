@@ -63,10 +63,6 @@ $defs:
         type: boolean
         description: Indicates whether multiple instances of this tag are allowed within
           its parent.
-      nestedTags:
-        description: Describes nested tags within this tag. Each nested tag can have its
-          own attributes and configuration.
-        $ref: ../utils/maps.yaml#/tag-map
       openTagOnly:
         type: boolean
         description: Prohibits the tag from having any children
@@ -91,8 +87,6 @@ $defs:
         $ref: "#/$defs/camelCased-properties/properties/htmlType"
       is-repeated:
         $ref: "#/$defs/camelCased-properties/properties/isRepeated"
-      nested-tags:
-        $ref: "#/$defs/camelCased-properties/properties/nestedTags"
       open-tag-only:
         $ref: "#/$defs/camelCased-properties/properties/openTagOnly"
       remove-dashes:

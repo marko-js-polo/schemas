@@ -16,9 +16,11 @@ unevaluatedProperties: false
 anyOf:
   - title: "object :: Nested Tag (camelCased)"
     $ref: "#/$defs/camelCased"
+    type: object
 
   - title: "object :: Nested Tag (dash-cased)"
     $ref: "#/$defs/dash-cased"
+    type: object
 
 $defs:
   info:
@@ -32,13 +34,40 @@ $defs:
     allOf:
       - title: "object :: Nested Tag (camelCased)"
         $ref: "#/$defs/info"
+        type: object
+
       - $ref: ../models/tag.base.yaml#/$defs/camelCased
+        type: object
+        
       - $ref: ../models/tag.base.yaml#/$defs/nested-tag-properties
+        type: object
+        
+      - type: object
+        properties:
+          nestedTags:
+            type: object
+            description: Describes nested tags within this tag. Each nested tag can have its
+              own attributes and configuration.
+            $ref: ../utils/maps.yaml#/tag-map
 
   dash-cased:
     type: object
     allOf:
       - title: "object :: Nested Tag (dash-cased)"
         $ref: "#/$defs/info"
+        type: object
+        
       - $ref: ../models/tag.base.yaml#/$defs/dash-cased
+        type: object
+        
       - $ref: ../models/tag.base.yaml#/$defs/nested-tag-properties
+        type: object 
+
+      - type: object
+        properties:
+          nestedTags:
+            type: object
+            description: Describes nested tags within this tag. Each nested tag can have its
+              own attributes and configuration.
+            $ref: ../utils/maps.yaml#/tag-map
+        
