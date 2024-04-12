@@ -8,11 +8,18 @@ description: Base definitions for a Tag.
 type: object
 unevaluatedProperties: false
 anyOf:
-  - 
+  - title: Tag Base (camelCased)
     type: object
-    $ref: "#/$defs/camelCased"
+    allOf:
+      - title: Compiler Hooks
+        $ref: ../property-groups/compiler-hooks.yaml#/camelCased
+        type: object
+        
+      - title: Shared Properties
+        $ref: ../property-groups/shared.yaml#/camelCased
+        type: object
 
-  - 
+  - title: Tag Base (dash-cased)
     type: object
     $ref: "#/$defs/dash-cased"
 
@@ -25,18 +32,20 @@ $defs:
         $ref: ../property-groups/file-mappings.yaml
 
   camelCased:
-    title: "Tag Base :: camelCased"
+    # title: "Tag Base :: camelCased"
     type: object
 
     allOf:
-      - $ref: ../property-groups/compiler-hooks.yaml#/camelCased
+      - title: Compiler Hooks
+        $ref: ../property-groups/compiler-hooks.yaml#/camelCased
         type: object
         
-      - $ref: ../property-groups/shared.yaml#/camelCased
+      - title: Shared Properties
+        $ref: ../property-groups/shared.yaml#/camelCased
         type: object
         
   dash-cased:
-    title: "Tag Base :: dash-cased"
+    title: Tag Base (dash-cased)
     type: object
         
     allOf:
@@ -49,37 +58,6 @@ $defs:
       - $ref: ../property-groups/shared.yaml#/dash-cased
         type: object
         
-  topLevel-tag-properties:
-    title: Attribute Groups
-    type: object
-        
-    anyOf:
-      - type: object
-        not:
-          required:
-            - attribute-groups
-        properties:
-          attributeGroups:
-            type: object
-            description: Defines groups of attributes that can then be referenced from tag
-              definitions.
-            patternProperties:
-              .*:
-                $ref: ../utils/maps.yaml#/attribute-map
-                type: object
-
-      - type: object
-        not:
-          required:
-            - attributeGroups
-        properties:
-          attribute-groups:
-            type: object
-            description: Defines groups of attributes that can then be referenced from tag
-              definitions.
-            patternProperties:
-              .*:
-                $ref: ../utils/maps.yaml#/attribute-map
   nested-tag-properties:
     title: Attribute Groups
     type: object

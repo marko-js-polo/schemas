@@ -27,22 +27,12 @@ allOf:
       - type: object
         title: "Marko Tag (camelCased)"
         unevaluatedProperties: false
-        allOf:
-          - title: "Marko Tag (camelCased)"
-            type: object
-
-          - $ref: ./models/tag.yaml#/$defs/camelCased
-            type: object
+        $ref: ./models/tag.yaml#/$defs/camelCased
 
       - type: object
         title: "Marko Tag (dash-cased)"
         unevaluatedProperties: false
-        allOf:
-          - title: "Marko Tag (dash-cased)"
-            type: object
-
-          - $ref: ./models/tag.yaml#/$defs/dash-cased
-            type: object
+        $ref: ./models/tag.yaml#/$defs/dash-cased
 
 
 

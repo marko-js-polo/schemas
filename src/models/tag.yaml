@@ -10,24 +10,20 @@ description: >-
 
 type: object
 anyOf:
-  - type: object
+  - title: Tag Definition (camelCased)
+    type: object
     unevaluatedProperties: false
     $ref: "#/$defs/camelCased"
 
-  - type: object
+  - title: Tag Definition (dash-cased)
+    type: object
     unevaluatedProperties: false
     $ref: "#/$defs/dash-cased"
 
 $defs:
   camelCased:
+    title: Tag Definition (camelCased)
     type: object
-
-    properties:
-      nestedTags:
-        type: object
-        description: Describes nested tags within this tag. Each nested tag can have its
-          own attributes and configuration.
-        $ref: ../utils/maps.yaml#/tag-map
 
     allOf:
       - title: "object :: Tag (camelCased)"
@@ -36,11 +32,26 @@ $defs:
       - $ref: ../models/tag.base.yaml#/$defs/camelCased
         type: object
 
-      - $ref: ../models/tag.base.yaml#/$defs/topLevel-tag-properties
-        type: object
+      - type: object
+        properties:
+          nestedTags:
+            type: object
+            description: Describes nested tags within this tag. Each nested tag can have its
+              own attributes and configuration.
+            $ref: ../utils/maps.yaml#/tag-map
+          
+          attributeGroups:
+            type: object
+            description: Defines groups of attributes that can then be referenced from tag
+              definitions.
+            patternProperties:
+              .*:
+                $ref: ../utils/maps.yaml#/attribute-map
+                type: object
         
 
   dash-cased:
+    title: Tag Definition (dash-cased)
     type: object
     
     properties:
@@ -50,12 +61,17 @@ $defs:
           own attributes and configuration.
         $ref: ../utils/maps.yaml#/tag-map
 
+      attribute-groups:
+        type: object
+        description: Defines groups of attributes that can then be referenced from tag
+          definitions.
+        patternProperties:
+          .*:
+            $ref: ../utils/maps.yaml#/attribute-map
+
     allOf:
       - title: "object :: Tag (dash-cased)"
         type: object
 
       - $ref: ../models/tag.base.yaml#/$defs/dash-cased
-        type: object
-
-      - $ref: ../models/tag.base.yaml#/$defs/topLevel-tag-properties
         type: object
