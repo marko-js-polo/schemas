@@ -3,10 +3,10 @@ $id: https://saulo.engineer/contributes/marko-js/schemas/models/attribute.object
 $schema: https://json-schema.org/draft/2019-09/schema
 x-stoplight: { id: f5en34vmmp81x }
 
-title: Attribute Object
+title: Attribute Definition
 description: >-
-  An Attribute definition object which allows
-  customizing the details of a tag attribute.
+  An Attribute definition object allows complete control
+  over all aspects of a tag attribute, from parsing to rendering.
 
 type: object
 anyOf:
@@ -17,23 +17,16 @@ anyOf:
     x-stoplight:
       id: hl4j3i4wj9jgm
 
-examples:
-  - type: string
-    description: Specifies the component variant
-    enum:
-      - primary
-      - secondary
-
 $defs:
   camelCased:
     title: "object :: Attribute (camelCased)"
     type: object
     description: An Attribute definition object with camelCased properties
     allOf:
-      - $ref: /models/attribute.base.yaml#/$defs/base
+      - $ref: ../models/attribute.base.yaml#/$defs/base
         x-stoplight:
           id: gmcptyb6ohq09
-      - $ref: /models/attribute.base.yaml#/$defs/camelCased-properties
+      - $ref: ../models/attribute.base.yaml#/$defs/camelCased-properties
         x-stoplight:
           id: yi01buw848adl
     x-stoplight:
@@ -41,10 +34,10 @@ $defs:
   dash-cased:
     title: "object :: Attribute (dash-cased)"
     allOf:
-      - $ref: /models/attribute.base.yaml#/$defs/base
+      - $ref: ../models/attribute.base.yaml#/$defs/base
         x-stoplight:
           id: 2j5vz3wnxdi7j
-      - $ref: /models/attribute.base.yaml#/$defs/dash-cased-properties
+      - $ref: ../models/attribute.base.yaml#/$defs/dash-cased-properties
         x-stoplight:
           id: 8zyjfp5ezr4pr
     x-stoplight:

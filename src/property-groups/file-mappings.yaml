@@ -1,8 +1,10 @@
-title: Component file mappings
 $id: https://saulo.engineer/contributes/marko-js/schemas/property-groups/file-mappings
 $schema: https://json-schema.org/draft/2019-09/schema
+
+title: Component file mappings
 description: "Properties that allow specifying paths to the component files:
   renderer, template, and types."
+
 type: object
 properties:
   renderer:

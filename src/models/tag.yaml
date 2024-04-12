@@ -10,20 +10,35 @@ description: >-
 
 type: object
 anyOf:
-  - unevaluatedProperties: false
+  - type: object
+    unevaluatedProperties: false
     $ref: "#/$defs/camelCased"
-  - unevaluatedProperties: false
+
+  - type: object
+    unevaluatedProperties: false
     $ref: "#/$defs/dash-cased"
 
 $defs:
   camelCased:
+    type: object
     allOf:
       - title: "object :: Tag (camelCased)"
-      - $ref: /models/tag.base.yaml#/$defs/camelCased
-      - $ref: /models/tag.base.yaml#/$defs/topLevel-tag-properties
+        type: object
+
+      - $ref: ../models/tag.base.yaml#/$defs/camelCased
+        type: object
+
+      - $ref: ../models/tag.base.yaml#/$defs/topLevel-tag-properties
+        type: object
 
   dash-cased:
+    type: object
     allOf:
       - title: "object :: Tag (dash-cased)"
-      - $ref: /models/tag.base.yaml#/$defs/dash-cased
-      - $ref: /models/tag.base.yaml#/$defs/topLevel-tag-properties
+        type: object
+
+      - $ref: ../models/tag.base.yaml#/$defs/dash-cased
+        type: object
+
+      - $ref: ../models/tag.base.yaml#/$defs/topLevel-tag-properties
+        type: object

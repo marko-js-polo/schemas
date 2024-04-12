@@ -1,0 +1,37 @@
+openapi: 3.1.0
+tags:
+  - name: marko
+    description: the best JS framework!
+x-stoplight:
+  id: nlngjk3oc33zh
+info:
+  title: Marko JSON Schemas
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /schemas/marko:
+    get:
+      summary: Marko Library Definition (marko.json)
+      responses:
+        '200':
+          description: Schema for the marko.json file
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Tag'
+
+  /schemas/marko-tag:
+    get:
+      summary: Marko Tag Definition (marko-tag.json)
+      responses:
+        '200':
+          description: Schema for the marko-tag.json file
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/Tag'
+components:
+  schemas:
+    Tag:
+      $ref: ../schemas/models/tag.base.json

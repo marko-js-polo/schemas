@@ -8,29 +8,61 @@ description: Base definitions for a Tag.
 type: object
 unevaluatedProperties: false
 anyOf:
-  - $ref: "#/$defs/camelCased"
-  - $ref: "#/$defs/dash-cased"
+  - 
+    type: object
+    $ref: "#/$defs/camelCased"
+
+  - 
+    type: object
+    $ref: "#/$defs/dash-cased"
 
 $defs:
   base:
+    type: object
     allOf:
-      - $ref: /property-groups/file-mappings.yaml
-      - $ref: /property-groups/shorthands.yaml
+      - 
+        type: object
+        $ref: ../property-groups/file-mappings.yaml
+
+      - 
+        type: object
+        $ref: ../property-groups/shorthands.yaml
+
   camelCased:
     title: "Tag Base :: camelCased"
+    type: object
+
     allOf:
-      - $ref: /property-groups/file-mappings.yaml
-      - $ref: /property-groups/shorthands.yaml
-      - $ref: /property-groups/compiler-hooks.yaml#/camelCased
-      - $ref: /property-groups/shared.yaml#/camelCased
+      - $ref: ../property-groups/file-mappings.yaml
+        type: object
+
+      - $ref: ../property-groups/shorthands.yaml
+        type: object
+
+      - $ref: ../property-groups/compiler-hooks.yaml#/camelCased
+        type: object
+        
+      - $ref: ../property-groups/shared.yaml#/camelCased
+        type: object
+        
   dash-cased:
     title: "Tag Base :: dash-cased"
+    type: object
+        
     allOf:
       - $ref: "#/$defs/base"
-      - $ref: /property-groups/compiler-hooks.yaml#/dash-cased
-      - $ref: /property-groups/shared.yaml#/dash-cased
+        type: object
+        
+      - $ref: ../property-groups/compiler-hooks.yaml#/dash-cased
+        type: object
+        
+      - $ref: ../property-groups/shared.yaml#/dash-cased
+        type: object
+        
   topLevel-tag-properties:
     title: Attribute Groups
+    type: object
+        
     anyOf:
       - type: object
         not:
@@ -43,7 +75,9 @@ $defs:
               definitions.
             patternProperties:
               .*:
-                $ref: /utils/maps.yaml#/attribute-map
+                $ref: ../utils/maps.yaml#/attribute-map
+                type: object
+
       - type: object
         not:
           required:
@@ -55,9 +89,11 @@ $defs:
               definitions.
             patternProperties:
               .*:
-                $ref: /utils/maps.yaml#/attribute-map
+                $ref: ../utils/maps.yaml#/attribute-map
   nested-tag-properties:
     title: Attribute Groups
+    type: object
+
     anyOf:
       - type: object
         not:
@@ -69,6 +105,7 @@ $defs:
             description: Names of attribute groups that should be added to this tag.
             items:
               type: string
+
       - type: object
         not:
           required:

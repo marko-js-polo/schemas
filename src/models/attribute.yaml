@@ -12,11 +12,41 @@ description: >-
   You can als define an attribute in the root-level property `attributes`
   and later reference it by prefixing its key in the attributes map with a `#`.
 
-type:
-  - object
-  - string
-
 oneOf:
-  - $ref: /models/attribute.string.yaml
-  - $ref: /models/attribute.object.yaml
+  - title: Attribute type
+    type: string
+    description: The type of the attribute.
+    $ref: ../models/attribute.base.yaml#/$defs/attributeType
 
+  - title: Attribute reference
+    type: string
+    pattern: ^#[\w]+.*
+    description: >-
+      A key from the root-level `attributes` object.
+
+      Example:
+
+      In the code below, the attribute `#cmp-variant`,
+      is defined once in `attributes` and referenced by
+      `<FancyButton>` and `<Panel>`.
+
+      ```json
+      {
+        "attributes": {
+          "cmp-variant": {
+            "name": "variant",
+            "type": "string"
+          }
+        },
+        "<FancyButton>": {
+          "@variant": "#cmp-variant"
+        },
+        "<Panel>": {
+          "@variant": "#cmp-variant"
+        }
+      }
+      ```
+
+  - title: Attribute Definition
+    $ref: ../models/attribute.object.yaml
+    type: object

@@ -1,32 +1,43 @@
 $id: https://saulo.engineer/contributes/marko-js/schemas/marko-tag
 $schema: https://json-schema.org/draft/2019-09/schema
-type: object
 
 title: marko-tag.json Schema
 description: |-
   Schema for `marko-tag.json` files, used for defining a single tag.
+  
+  The marko-tag.json file configures a single component.
+  It's automatically discovered if placed inside a tag directory.
 
+type: object
 allOf:
-  - description: >-
-      The marko-tag.json file configures a single component.
-      It's automatically discovered if placed inside a tag directory.
-
   - type: object
+    title: JSON Properties
     properties:
       $schema:
         title: $schema
         default: https://saulo.engineer/contributes/marko-js/schemas/marko-tag
         type: string
 
-  - anyOf:
-    - unevaluatedProperties: false
-      allOf:
-        - title: "Marko Tag (camelCased)"
-        - $ref: /models/tag.yaml#/$defs/camelCased
+  - type: object
+    anyOf:
+      - type: object
+        title: "Marko Tag (camelCased)"
+        unevaluatedProperties: false
+        allOf:
+          - title: "Marko Tag (camelCased)"
+            type: object
 
-    - unevaluatedProperties: false
-      allOf:
-        - title: "Marko Tag (dash-cased)"
-        - $ref: /models/tag.yaml#/$defs/dash-cased
+          - $ref: ./models/tag.yaml#/$defs/camelCased
+            type: object
+
+      - type: object
+        title: "Marko Tag (dash-cased)"
+        unevaluatedProperties: false
+        allOf:
+          - title: "Marko Tag (dash-cased)"
+            type: object
+
+          - $ref: ./models/tag.yaml#/$defs/dash-cased
+            type: object
 
 

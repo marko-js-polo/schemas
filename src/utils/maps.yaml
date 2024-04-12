@@ -8,10 +8,10 @@ attribute-map:
   description: Defines the attributes that the tag supports.
   patternProperties:
     "[^\\s]+":
-      $ref: /models/attribute.yaml
+      $ref: ../models/attribute.yaml
 tag-map:
   type: object
   description: Defines the attributes that the tag supports.
   patternProperties:
     "[^\\s]+":
-      $ref: /models/tag.nested.yaml
+      $ref: ../models/tag.nested.yaml
