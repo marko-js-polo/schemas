@@ -1,11 +1,20 @@
+$id: https://saulo.engineer/contributes/marko-js/schemas/property-groups/parse-options
+$schema: https://json-schema.org/draft/2019-09/schema
+x-internal: true
+
 title: Parse Options
 description: >-
   Parse options can be used to configure how Marko's parser should parse a tag.
 
-
   These options set in the [parseOptions](./tag.definitions.json) property of a [tag definition](./tag.definitions.json)
-$id: https://saulo.engineer/contributes/marko-js/schemas/property-groups/parse-options
-$schema: https://json-schema.org/draft/2019-09/schema
+
+type: object
+anyOf:
+  - unevaluatedProperties: false
+    $ref: "#/camelCased"
+  - unevaluatedProperties: false
+    $ref: "#/dash-cased"
+
 $defs:
   common-properties:
     properties:
@@ -66,9 +75,3 @@ dash-cased:
   allOf:
     - $ref: "#/$defs/common-properties"
     - $ref: "#/$defs/dashed-properties"
-type: object
-anyOf:
-  - unevaluatedProperties: false
-    $ref: "#/camelCased"
-  - unevaluatedProperties: false
-    $ref: "#/dash-cased"

@@ -3,7 +3,7 @@ $id: https://saulo.engineer/contributes/marko-js/schemas/models/tag.nested
 $schema: https://json-schema.org/draft/2019-09/schema
 x-internal: false
 
-title: Nested Tag
+title: Nested Tag Definition
 description: >-
   The only difference between a top-level tag and a nested tag is in the
   `attributeGroups` property.

@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://json-schema.org/draft/2019-09/schema
 $id: https://saulo.engineer/contributes/marko-js/schemas/models/tag.base
 $schema: https://json-schema.org/draft/2019-09/schema
+x-internal: true
 
 title: Tag Base
 description: Base definitions for a Tag.

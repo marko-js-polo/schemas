@@ -1,9 +1,22 @@
-title: Library and Tag shared properties
 $id: https://saulo.engineer/contributes/marko-js/schemas/property-groups/shared
 $schema: https://json-schema.org/draft/2019-09/schema
+x-internal: true
+
+title: Library and Tag shared properties
 description: Combines all properties shared by tags (`marko-tag.json`) and
   library (`marko.json`) schemas.
+
 type: object
+
+camelCased:
+  allOf:
+    - $ref: "#/$defs/base"
+    - $ref: "#/$defs/camelCased-properties"
+dash-cased:
+  allOf:
+    - $ref: "#/$defs/base"
+    - $ref: "#/$defs/dash-cased-properties"
+
 $defs:
   base:
     properties:
@@ -95,12 +108,4 @@ $defs:
         $ref: ./parse-options.yaml
       target-property:
         $ref: "#/$defs/camelCased-properties/properties/targetProperty"
-camelCased:
-  allOf:
-    - $ref: "#/$defs/base"
-    - $ref: "#/$defs/camelCased-properties"
-dash-cased:
-  allOf:
-    - $ref: "#/$defs/base"
-    - $ref: "#/$defs/dash-cased-properties"
-x-internal: true
+

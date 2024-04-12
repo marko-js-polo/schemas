@@ -1,7 +1,7 @@
 $id: https://saulo.engineer/contributes/marko-js/schemas/marko-tag
 $schema: https://json-schema.org/draft/2019-09/schema
 
-title: marko-tag.json Schema
+title: Tag Definition File (marko-tag.json)
 description: |-
   Schema for `marko-tag.json` files, used for defining a single tag.
   

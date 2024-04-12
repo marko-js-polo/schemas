@@ -2,6 +2,7 @@
 $id: https://saulo.engineer/contributes/marko-js/schemas/models/attribute.object
 $schema: https://json-schema.org/draft/2019-09/schema
 x-stoplight: { id: f5en34vmmp81x }
+x-internal: true
 
 title: Attribute Definition
 description: >-

@@ -1,12 +1,8 @@
 $id: https://saulo.engineer/contributes/marko-js/schemas/marko
 $schema: https://json-schema.org/draft/2019-09/schema
 
-title: Marko library configuration file (marko.json)
-x-info:
-  # DEV NOTE: description is wrapped in the x-info property
-  # because we need to repeat it inside oneOf's, otherwise
-  # vscode picks up the description of the first item in the oneOf array
-  description: >-
+title: Library Configuration File (marko.json)
+description: >-
     The marko.json file can be used to identify and document an entire
     library of tags.
 

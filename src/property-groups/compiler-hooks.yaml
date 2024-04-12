@@ -1,7 +1,10 @@
-title: Compiler hooks
-description: Properties that allow specifying files to hook into compiler stages.
 $id: https://saulo.engineer/contributes/marko-js/schemas/property-groups/compiler-hooks
 $schema: https://json-schema.org/draft/2019-09/schema
+x-internal: true
+
+title: Compiler hooks
+description: Properties that allow specifying files to hook into compiler stages.
+
 type: object
 $defs:
   common-properties:
@@ -68,4 +71,3 @@ dash-cased:
 anyOf:
   - $ref: "#/camelCased"
   - $ref: "#/dash-cased"
-x-internal: true
